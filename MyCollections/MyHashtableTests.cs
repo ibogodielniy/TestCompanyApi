@@ -7,8 +7,6 @@ namespace MyCollections
     [TestFixture]
     internal class MyHashtableCollisionsTests
     {
-        #region Only open method testing
-
         [Test]
         public void AddEntryTest()
         {
@@ -47,9 +45,6 @@ namespace MyCollections
             Assert.AreEqual(hashtable.Count, 0);
         }
 
-        #endregion
-        #region Collision solwing testing.
-
         [Test]
         public void AddCollisionEntryTest()
         {
@@ -78,7 +73,5 @@ namespace MyCollections
             Object entry = hashtable.GetEntry(secondTestKey);
             Assert.AreEqual(entry, secondTestKey);
         }
-
-        #endregion
     }
 }
