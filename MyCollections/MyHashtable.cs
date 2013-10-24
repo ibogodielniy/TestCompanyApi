@@ -52,7 +52,7 @@ namespace MyCollections
             {
                 int index = HashGenerator.Generate(key, _capacity);
 
-                if (!CheckCollision(key) && BacketArray[index]!=null)
+                if (!CheckCollision(key))
                 {
                     index = SolveColission(index);
                 }
@@ -83,7 +83,7 @@ namespace MyCollections
 
             for (int i = (index - 5); i < (index + 5); i++)
             {
-                if (BacketArray[i].Key == key)
+                if (BacketArray[i] != null && BacketArray[i].Key == key)
                     return i;
             }
             return index;
@@ -91,9 +91,16 @@ namespace MyCollections
 
         public void Remove(Object key)
         {
-            int index = Find(key);
-            BacketArray[index] = null;
-            _fullnessCounter--;
+            try
+            {
+                int index = Find(key);
+                BacketArray[index] = null;
+                _fullnessCounter--;
+            }
+            catch (ArgumentNullException exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
         }
 
         private int SolveColission(int index)
@@ -107,7 +114,7 @@ namespace MyCollections
                 }
                 r = index--;
             } 
-         while (BacketArray[r].Key == null);
+         while (BacketArray[r] != null);
             return r;
         }
 
