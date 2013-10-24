@@ -5,7 +5,7 @@ namespace MyCollections
 {
     public class MyHashtable
     {
-        private int _capacity = 10; //Base capacity is hardcoded
+        private int _capacity = 10; 
         public Bucket[] BacketArray;
         private readonly IHashGenerator _hashGenerator;
         private int _fullnessCounter;
@@ -63,7 +63,7 @@ namespace MyCollections
 
             catch(ArgumentException exc)
             {
-                Console.WriteLine(exc.Message);
+                //Console.WriteLine(exc.Message);
             }
         }
 

@@ -1,0 +1,10 @@
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\perfomanceConsole.exe.config
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\perfomanceConsole.exe
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\perfomanceConsole.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\MyCollections.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\nunit.framework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\MyCollections.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Release\nunit.framework.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\obj\Release\perfomanceConsole.csprojResolveAssemblyReference.cache
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\obj\Release\perfomanceConsole.exe
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\obj\Release\perfomanceConsole.pdb

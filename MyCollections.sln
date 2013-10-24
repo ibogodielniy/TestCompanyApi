@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCollections", "MyCollections\MyCollections.csproj", "{64B7FE9F-65A7-4D53-9195-028D20AC25D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTableTestConsole", "HashTableTestConsole\HashTableTestConsole.csproj", "{ACF09FAE-5C04-446F-9D62-7412F350FCF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "perfomanceConsole", "perfomanceConsole\perfomanceConsole.csproj", "{03CA6E19-C6D7-453B-8736-BC099021049E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{64B7FE9F-65A7-4D53-9195-028D20AC25D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64B7FE9F-65A7-4D53-9195-028D20AC25D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64B7FE9F-65A7-4D53-9195-028D20AC25D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACF09FAE-5C04-446F-9D62-7412F350FCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACF09FAE-5C04-446F-9D62-7412F350FCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACF09FAE-5C04-446F-9D62-7412F350FCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACF09FAE-5C04-446F-9D62-7412F350FCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03CA6E19-C6D7-453B-8736-BC099021049E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03CA6E19-C6D7-453B-8736-BC099021049E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03CA6E19-C6D7-453B-8736-BC099021049E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03CA6E19-C6D7-453B-8736-BC099021049E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
