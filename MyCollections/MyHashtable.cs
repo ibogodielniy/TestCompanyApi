@@ -6,20 +6,21 @@ namespace MyCollections
     public class MyHashtable
     {
         private int _capacity = 10; 
-        public Bucket[] BacketArray;
+        private Bucket[] _bucketArray;
         private readonly IHashGenerator _hashGenerator;
         private int _fullnessCounter;
 
         public int Count {
             get
             {
-                return BacketArray.Count(bucket => bucket != null);
+                return _fullnessCounter;
             }
         }
 
         public MyHashtable(IHashGenerator hashGenerator)
         {
             _hashGenerator = hashGenerator;
+            _bucketArray = new Bucket[_capacity];
         }
 
         private IHashGenerator HashGenerator
@@ -30,77 +31,25 @@ namespace MyCollections
             }
         }
 
-        public class Bucket
+        private class Bucket
         {
             public Object Key;
             public Object Value;
         }
-
-        public void Add(Object key, Object value)
+        
+        private int IndexOf(Object key)
         {
-            _fullnessCounter++;
-
-            if (BacketArray == null)
-                BacketArray = new Bucket[_capacity];
-
-            if (_fullnessCounter == _capacity/2)
-            {
-                Rehash(_capacity);
-            }
-
-            try
-            {
-                int index = HashGenerator.Generate(key, _capacity);
-
-                if (!CheckCollision(key))
-                {
-                    index = SolveColission(index);
-                }
-                var bucket = new Bucket { Key = key, Value = value };
-
-                BacketArray[index] = bucket;
-            }
-
-            catch(ArgumentException exc)
-            {
-                //Console.WriteLine(exc.Message);
-            }
-        }
-
-        public Object GetEntry(Object key)
-        {
-            return BacketArray[Find(key)].Key;
-        }
-
-        private int Find(Object key)
-        {
-            if (BacketArray == null)
-                throw new ArgumentNullException();
             int index = HashGenerator.Generate(key, _capacity);
 
-            if (BacketArray[index].Key == key)
-                return index;
-
-            for (int i = (index - 5); i < (index + 5); i++)
+            if (_bucketArray[index].Key != key)
             {
-                if (BacketArray[i] != null && BacketArray[i].Key == key)
-                    return i;
+                for (int i = 0; i < _capacity; i++)
+                {
+                    if (_bucketArray[i] != null && _bucketArray[i].Key == key)
+                        index = i;
+                }
             }
             return index;
-        }
-
-        public void Remove(Object key)
-        {
-            try
-            {
-                int index = Find(key);
-                BacketArray[index] = null;
-                _fullnessCounter--;
-            }
-            catch (ArgumentNullException exc)
-            {
-                Console.WriteLine(exc.Message);
-            }
         }
 
         private int SolveColission(int index)
@@ -114,7 +63,7 @@ namespace MyCollections
                 }
                 r = index--;
             } 
-         while (BacketArray[r] != null);
+         while (_bucketArray[r] != null);
             return r;
         }
 
@@ -122,11 +71,11 @@ namespace MyCollections
         {
             int index = HashGenerator.Generate(key, _capacity);
 
-            if (BacketArray[index] != null)
+            if (_bucketArray[index] != null)
             {
-                var backet = BacketArray[index];
+                var backet = _bucketArray[index];
 
-                if (backet != null && key == backet.Key)
+                if (key == backet.Key)
                 {
                     throw new ArgumentException();
                 }
@@ -140,7 +89,7 @@ namespace MyCollections
             capacity *= 2;
             var extendedArray = new Bucket[capacity];
 
-            foreach (Bucket i in BacketArray)
+            foreach (Bucket i in _bucketArray)
             {
                 int index = HashGenerator.Generate(i.Key, capacity);
 
@@ -150,8 +99,41 @@ namespace MyCollections
                 }
                 extendedArray[index] = i;
             }
-            BacketArray = extendedArray;
+            _bucketArray = extendedArray;
             _capacity = capacity;
         }
+
+        public void Add(Object key, Object value)
+        {
+            _fullnessCounter++;
+
+            if (_fullnessCounter == _capacity / 2)
+            {
+                Rehash(_capacity);
+            }
+
+            int index = HashGenerator.Generate(key, _capacity);
+
+            if (!CheckCollision(key))
+            {
+                index = SolveColission(index);
+            }
+            var bucket = new Bucket { Key = key, Value = value };
+
+            _bucketArray[index] = bucket;
+        }
+
+        public Object GetEntry(Object key)
+        {
+            return _bucketArray[IndexOf(key)].Key;
+        }
+
+        public void Remove(Object key)
+        {
+            int index = IndexOf(key);
+            _bucketArray[index] = null;
+            _fullnessCounter--;
+        }
+
     }
 }
