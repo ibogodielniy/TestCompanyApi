@@ -17,6 +17,11 @@ namespace MyCollections
             }
         }
 
+        public MyHashtable(int defaultCapacity)
+        {
+            _capacity = defaultCapacity;
+        }
+
         public MyHashtable(IHashGenerator hashGenerator)
         {
             _hashGenerator = hashGenerator;
@@ -33,8 +38,8 @@ namespace MyCollections
 
         private class Bucket
         {
-            public Object Key;
-            public Object Value;
+            internal Object Key;
+            internal Object Value;
         }
         
         private int IndexOf(Object key)
@@ -43,10 +48,12 @@ namespace MyCollections
 
             if (_bucketArray[index].Key != key)
             {
-                for (int i = 0; i < _capacity; i++)
+                for (int i = index; i <= _capacity; i++)
                 {
+                    if (index == _capacity) i = 0;
+
                     if (_bucketArray[i] != null && _bucketArray[i].Key == key)
-                        index = i;
+                         return i;
                 }
             }
             return index;
@@ -56,11 +63,11 @@ namespace MyCollections
         {
             do
             {
-                if ((index ++) <= _capacity)
+                if ((index + 1) == _capacity)
                 {
-                     index++;
+                     index = 0;
                 }
-                index=0;
+                index++;
             } 
          while (_bucketArray[index] != null);
             return index;
@@ -128,7 +135,7 @@ namespace MyCollections
 
         public Object GetEntry(Object key)
         {
-            return _bucketArray[IndexOf(key)].Key;
+            return _bucketArray[IndexOf(key)].Value;
         }
 
         public void Remove(Object key)
