@@ -54,17 +54,16 @@ namespace MyCollections
 
         private int SolveColission(int index)
         {
-            int r;
             do
             {
-                if ((index + 1) <= _capacity)
+                if ((index ++) <= _capacity)
                 {
                      index++;
                 }
-                r = index--;
+                index=0;
             } 
-         while (_bucketArray[r] != null);
-            return r;
+         while (_bucketArray[index] != null);
+            return index;
         }
 
         private bool CheckCollision(Object key)
@@ -91,13 +90,17 @@ namespace MyCollections
 
             foreach (Bucket i in _bucketArray)
             {
-                int index = HashGenerator.Generate(i.Key, capacity);
-
-                if (CheckCollision(index))
+                if (i != null)
                 {
-                    index = SolveColission(index);
+                    int index = HashGenerator.Generate(i.Key, capacity);
+
+
+                    if (CheckCollision(index))
+                    {
+                        index = SolveColission(index);
+                    }
+                    extendedArray[index] = i;
                 }
-                extendedArray[index] = i;
             }
             _bucketArray = extendedArray;
             _capacity = capacity;

@@ -4,3 +4,4 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\MyCollection
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\MyCollections\bin\Release\nunit.framework.xml
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\MyCollections\obj\Release\MyCollections.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\MyCollections\obj\Release\MyCollections.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\MyCollections\obj\Release\MyCollections.csprojResolveAssemblyReference.cache

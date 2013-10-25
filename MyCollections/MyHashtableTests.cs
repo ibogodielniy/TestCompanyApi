@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using NUnit.Framework;
 
 namespace MyCollections
@@ -72,6 +73,22 @@ namespace MyCollections
             hashtable.Add(secondTestKey, testValue);
             Object entry = hashtable.GetEntry(secondTestKey);
             Assert.AreEqual(entry, secondTestKey);
+        }
+
+        [Test]
+        public void RehashingTest()
+        {
+            var hashtable = new MyHashtable(new HashGenerator());
+            
+            hashtable.Add("qwe", "1");
+            hashtable.Add("wer", "2");
+            hashtable.Add("ert", "3");
+            hashtable.Add("rty", "4");
+            hashtable.Add("tyu", "5");
+            hashtable.Add("yui", "6");
+            hashtable.Add("uio", "7");
+
+            Assert.AreEqual(7, hashtable.Count);
         }
     }
 }
