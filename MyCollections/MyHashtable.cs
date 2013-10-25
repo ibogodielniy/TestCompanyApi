@@ -17,9 +17,11 @@ namespace MyCollections
             }
         }
 
-        public MyHashtable(int defaultCapacity)
+        public MyHashtable(IHashGenerator hashGenerator , int defaultCapacity)
         {
             _capacity = defaultCapacity;
+            _hashGenerator = hashGenerator;
+            _bucketArray = new Bucket[_capacity];
         }
 
         public MyHashtable(IHashGenerator hashGenerator)
@@ -44,14 +46,13 @@ namespace MyCollections
         
         private int IndexOf(Object key)
         {
-            int index = HashGenerator.Generate(key, _capacity);
+            int index = _hashGenerator.Generate(key, _capacity);
 
             if (_bucketArray[index].Key != key)
             {
                 for (int i = index; i <= _capacity; i++)
                 {
-                    if (index == _capacity) i = 0;
-
+                    if (i == _capacity - 1) i = 0;
                     if (_bucketArray[i] != null && _bucketArray[i].Key == key)
                          return i;
                 }

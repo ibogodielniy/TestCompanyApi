@@ -8,3 +8,5 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceCo
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\obj\Debug\perfomanceConsole.csprojResolveAssemblyReference.cache
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\obj\Debug\perfomanceConsole.exe
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\obj\Debug\perfomanceConsole.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Debug\Moq.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\perfomanceConsole\bin\Debug\Moq.xml

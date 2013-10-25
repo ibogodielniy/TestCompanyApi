@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fakeHashGenerator.cs" />
     <Compile Include="HashGenerator.cs" />
     <Compile Include="IHashGenerator.cs" />
     <Compile Include="MyHashtable.cs" />

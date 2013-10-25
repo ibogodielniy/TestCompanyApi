@@ -38,7 +38,7 @@ namespace MyCollections
         [Test]
         public void RehashingTest()
         {
-            var hashtable = new MyHashtable(new HashGenerator());
+            var hashtable = new MyHashtable(new HashGenerator(), 10);
 
             hashtable.Add("qwe", "1");
             hashtable.Add("wer", "2");
@@ -58,7 +58,7 @@ namespace MyCollections
         {
             var stub = new Mock<IHashGenerator>();
 
-            stub.Setup(s => s.Generate(8, 10));
+            stub.Setup(s => s.Generate(It.IsAny<Object>(), 10)).Returns(9);
             var hashtable = new MyHashtable(stub.Object);
 
             Object testKey = "fghj";
