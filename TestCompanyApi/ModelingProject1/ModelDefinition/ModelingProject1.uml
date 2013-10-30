@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="3b9c6fa7-58b5-41cd-976e-54049b09d731"
+  name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="cf2fb28a-8fde-4425-a61f-acf6b39738d9"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="459fb756-fc7b-443f-90d3-8cf0123aeb54"
+        name="Class3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="01f38b4b-64c1-466f-8f80-6e14aa9146d2"
+        name="CompanyRepository"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="335a606d-4a89-4622-b86c-4a7ac40ee703">
+            <interfaceMoniker
+              Id="5dfdec7b-f059-421e-a67e-b735d25a58e9"
+              LastKnownName="IRepository&lt;TItem&gt;"
+              LastKnownLocation="Package_1232.uml" />
+          </dependency>
+          <dependency
+            Id="5527d56d-5ddf-4472-9c87-4b27628ffeac">
+            <classMoniker
+              Id="b5ca0868-6477-47c5-93fa-92fedd62d72d"
+              LastKnownName="EmployeeContext"
+              LastKnownLocation="Package_1230.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="e7ac37d8-6999-44f7-86d4-d35477d0475a"
+            name="Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="42ca1c72-986d-4057-9fe8-55a05109e5f6"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="0626edf9-8127-4f90-87e7-436733034916"
+                      LastKnownName="Company"
+                      LastKnownLocation="Package_1230.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9b826c7e-a81b-4028-8129-b81b824d2dd8"
+                  name="id_Company"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="700af8cc-1f9b-46d5-9b51-c7bf6eb24b12"
+            name="Put"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="534b2380-4cc0-43de-acc4-99db3d112fb8"
+                  name="int id_Company"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f01edf9c-fc49-4b5d-bba5-98f971e38afc"
+            name="Post"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="76bf6da6-f369-48f7-8907-825046a0f866"
+                  name="Company comp"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4bc83e0a-339d-441f-8243-f48e03231f6b"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2a9658e4-7bf5-420f-83c4-28c29273eb4a"
+                  name="int id_Company"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="c2640fe2-58f0-44ed-b443-292ab2dd5cfa"
+        name="Emloyee" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fa29223c-2044-4c11-b123-c9f322da1479"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8a723368-62cc-4794-950e-da9854fd924f"
+        name="EmployeeContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="5ab8d7de-8950-4483-9c4c-085644946253">
+            <classMoniker
+              Id="ed01f2bc-2113-4ca3-82cc-ab449a1380b9"
+              LastKnownName="Department"
+              LastKnownLocation="Package_1230.uml" />
+          </dependency>
+          <dependency
+            Id="dcab89c2-1c7d-41ed-8554-0c689aa5a03e">
+            <classMoniker
+              Id="01bab677-8cb4-4785-a156-679843bad5b6"
+              LastKnownName="Employee"
+              LastKnownLocation="Package_1230.uml" />
+          </dependency>
+          <dependency
+            Id="5bc2c74b-8914-4bed-a8ca-8553d03c6f0c">
+            <classMoniker
+              Id="b5ca0868-6477-47c5-93fa-92fedd62d72d"
+              LastKnownName="EmployeeContext"
+              LastKnownLocation="Package_1230.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="949b6f30-2e91-4b11-95e9-57d63d5c94cb"
+            name="Emloyee"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="02349863-7b3d-426f-affa-b5fba1cbe3bb"
+                LastKnownName="DbSet&lt;Emloyee&gt;"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e389bcd9-2c3e-4b26-a513-ea7aa3fcfd52"
+            name="Department"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="4a7458dd-43fc-4f2a-a08e-407a1e6145ae"
+                LastKnownName="DbSet&lt;Employee&gt;"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="02349863-7b3d-426f-affa-b5fba1cbe3bb"
+        name="DbSet&lt;Emloyee&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="4a7458dd-43fc-4f2a-a08e-407a1e6145ae"
+        name="DbSet&lt;Employee&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+        name="TItem" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7e361c95-9afc-437c-ad27-e7ad226bf5fe"
+        name="CompanyRepository2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="287682ed-545a-4029-a8da-231b57a9abab"
+            name="GetCompany"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f3dde897-16d0-4dca-bc26-c60d0db2e318"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="0626edf9-8127-4f90-87e7-436733034916"
+                      LastKnownName="Company"
+                      LastKnownLocation="Package_1230.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="861c0fbd-2bf3-4ada-9252-fe03dcbbe389"
+                  name="id_Company"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5abb898c-f768-4c7a-99e3-54cd9afbceb5"
+            name="PutCompany"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7038dc8a-346d-4a9c-a52b-5369b8ee4e7e"
+                  name="int id_Company"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eacd7b7c-dae3-4ceb-a6da-2041cd222553"
+            name="PostCompany"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="56e8217e-b1f0-415b-b61e-9300f46c9bad"
+                  name="Company comp"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e72275fd-8f6f-42f6-bc09-eb1cd2027bde"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7d980967-0998-4375-a4f3-ed3d57c03ac6"
+                  name="int id_Company"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0116cb8d-427f-4201-943a-828283a03b21"
+        name="DepartmentRepository"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="9722b5d2-a13d-4ac8-b0b4-90db82770db9">
+            <interfaceMoniker
+              Id="5dfdec7b-f059-421e-a67e-b735d25a58e9"
+              LastKnownName="IRepository&lt;TItem&gt;"
+              LastKnownLocation="Package_1232.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="18f80c51-32c9-42a0-8114-bdb21f23a4d8"
+            name="Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9e59f5c9-aee2-4703-99df-c4ad5c8a9fe6"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="01bab677-8cb4-4785-a156-679843bad5b6"
+                      LastKnownName="Employee"
+                      LastKnownLocation="Package_1230.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3145e9f-f417-475c-9d2d-45b6cb1f99f4"
+                  name="id_Department"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="34cf4c00-6dcb-47cb-9f0c-14497b26f6e4"
+            name="Put"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="79204e44-3afb-4e59-9848-40451e813a51"
+                  name="int id_Department"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0e56a8d1-adb4-4eda-a222-6f001017f2f4"
+            name="Post"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="12599ad7-bae8-4b7f-ae05-05f1fefc7eae"
+                  name="Department dep"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f603e176-0862-4ca5-afb0-3595115d363b"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bc20443c-099c-46fa-a995-8bfa68c205a6"
+                  name="int id_Department"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="bfe38482-264c-486b-ba3b-86d7b40dccda"
+        name="List&lt;Departments&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0fc34044-aa92-4a21-a759-30ab8c8b3c90"
+        name="List&lt;Employee&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="27b775be-8ea8-4506-a2d6-34906d64132e"
+        name="List&lt;Company&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="c67cbaa0-4161-4118-85ba-29215b509059"
+        name="List&lt;Departmants&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f7c33957-0f42-492c-83f6-74af4250f943"
+        LastKnownName="DataAccess"
+        LastKnownLocation="Package_1230.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="77ca6a9f-6568-4789-a92f-11a0f997c1ee"
+        LastKnownName="Repository"
+        LastKnownLocation="Package_1232.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="23113e41-4fec-4f18-a1a6-3a355e1cfa7a"
+        LastKnownName="Serivices"
+        LastKnownLocation="Package_1234.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

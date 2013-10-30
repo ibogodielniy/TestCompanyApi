@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="77ca6a9f-6568-4789-a92f-11a0f997c1ee"
+  name="Repository" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="5dfdec7b-f059-421e-a67e-b735d25a58e9"
+        name="IRepository&lt;TItem&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="a36e3f3b-62d6-4555-9ea0-97be02616a56"
+            name="Create"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="50c02b8b-093c-4322-9f5f-e5f54477bb8f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+                      LastKnownName="TItem"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dde975ae-16b7-4415-8d3b-7e54049a917e"
+                  name="TItem item"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fb0ff5be-cf53-4359-a4ce-915167554a16"
+            name="Find"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2c72cef5-0feb-425a-a4ec-2016b3a0ceb6"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="71b49f0d-0383-4667-88c0-6eaab1599b9b"
+                      LastKnownName="List&lt;TItem&gt;"
+                      LastKnownLocation="Package_1232.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b2b9d620-c839-4458-827b-d96dc0680a34"
+                  name="Expression&lt;Func&lt;TItem"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6ca07c8f-9fb8-463d-a15d-b11a242c6479"
+                  name="bool&gt;&gt; wherePredicate"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7484b187-a890-4460-b33d-844ae996bef9"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01df5255-9a14-4bb1-847a-b732331f54b1"
+                  name="TItem item"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="430d71a7-5ba3-4566-a9d6-2049cdf8d269"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+                      LastKnownName="TItem"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c4fd1bdd-2c08-4093-b6f3-c75bcf32b189"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9bc8606b-6442-47fe-aa84-25597a34a88a"
+                  name="TItem item"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e8cb2937-42ad-46e3-b747-feaf566748f4"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+                      LastKnownName="TItem"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ae711815-2638-4e5c-8b8d-7183866136d0"
+        name="Repository&lt;TItem, TContext&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="881af385-cf06-42dd-9e85-b530c4e363e2">
+            <interfaceMoniker
+              Id="5dfdec7b-f059-421e-a67e-b735d25a58e9"
+              LastKnownName="IRepository&lt;TItem&gt;"
+              LastKnownLocation="Package_1232.uml" />
+          </dependency>
+          <dependency
+            Id="a5fa3f6c-0c4c-4563-84a2-64a7291c1f76">
+            <classMoniker
+              Id="b5ca0868-6477-47c5-93fa-92fedd62d72d"
+              LastKnownName="EmployeeContext"
+              LastKnownLocation="Package_1230.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ea3d36c7-d3bb-4852-a703-aeb571f18f6b"
+            name="Create"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f397926d-19d3-460c-8236-45570a243e6a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+                      LastKnownName="TItem"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="da1d1841-da8d-4852-92dc-8a967f2b5aba"
+                  name="TItem item"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="64d1c592-6558-405b-8c4e-3cbfb70dd099"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f49558da-50c6-46eb-b1f0-249f966c5f41"
+                  name="TItem item"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed272d3f-1cff-4919-b9fe-4771621c1a7c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+                      LastKnownName="TItem"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d791db10-da9a-4813-a4a9-33d46dc62c03"
+            name="Find"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a89aa937-7622-42c5-a264-3c6bd7b7f4ed"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="71b49f0d-0383-4667-88c0-6eaab1599b9b"
+                      LastKnownName="List&lt;TItem&gt;"
+                      LastKnownLocation="Package_1232.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1833f621-806a-4559-927e-9f1fec84bb27"
+                  name="Expression&lt;Func&lt;TItem"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8cd301f8-14e8-48a3-b775-a3a3073d835b"
+                  name="bool&gt;&gt; wherePredicate"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2b22c1c9-62a0-4d10-b212-29aae41ade48"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1f434e23-d859-476c-87ac-42c8fd6db532"
+                  name="TItem item"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a8528773-0b72-4ed8-bc2f-22a6ee7a4fca"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0b35b30f-d5a6-4fa0-8e7e-8fd47f82a8e4"
+                      LastKnownName="TItem"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="71b49f0d-0383-4667-88c0-6eaab1599b9b"
+        name="List&lt;TItem&gt;" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

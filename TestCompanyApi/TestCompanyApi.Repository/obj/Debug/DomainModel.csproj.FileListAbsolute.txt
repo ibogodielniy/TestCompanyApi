@@ -1,0 +1,10 @@
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\DomainModel.dll.config
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\DomainModel.dll
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\DomainModel.pdb
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.dll
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.xml
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\obj\Debug\DomainModel.dll
+c:\users\devnet\documents\visual studio 2012\Projects\TestCompanyApi\DomainModel\obj\Debug\DomainModel.pdb

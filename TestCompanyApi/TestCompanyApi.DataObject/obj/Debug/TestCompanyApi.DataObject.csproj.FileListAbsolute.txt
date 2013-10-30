@@ -1,0 +1,4 @@
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\TestCompanyApi.DataObject.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\TestCompanyApi.DataObject.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.pdb

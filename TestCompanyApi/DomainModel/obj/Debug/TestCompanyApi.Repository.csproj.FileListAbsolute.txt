@@ -1,0 +1,11 @@
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\obj\Debug\TestCompanyApi.Repository.csprojResolveAssemblyReference.cache
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\nunit.framework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\nunit.framework.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\obj\Debug\Repository.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\obj\Debug\Repository.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\Repository.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\DomainModel\bin\Debug\Repository.pdb

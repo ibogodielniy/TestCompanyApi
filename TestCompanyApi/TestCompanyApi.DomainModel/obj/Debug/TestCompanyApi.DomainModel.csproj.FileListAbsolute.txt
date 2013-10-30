@@ -1,0 +1,4 @@
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DomainModel\bin\Debug\TestCompanyApi.DomainModel.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DomainModel\bin\Debug\TestCompanyApi.DomainModel.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DomainModel\obj\Debug\TestCompanyApi.DomainModel.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DomainModel\obj\Debug\TestCompanyApi.DomainModel.pdb

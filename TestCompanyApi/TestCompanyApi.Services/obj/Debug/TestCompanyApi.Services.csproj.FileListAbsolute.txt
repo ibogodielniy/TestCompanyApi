@@ -1,0 +1,13 @@
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\obj\Debug\TestCompanyApi.Services.csprojResolveAssemblyReference.cache
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\TestCompanyApi.Services.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\TestCompanyApi.Services.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\DataAccessLayer.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\EntityFramework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\Repository.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\nunit.framework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\DataAccessLayer.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\Repository.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\EntityFramework.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\bin\Debug\nunit.framework.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\obj\Debug\TestCompanyApi.Services.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.Services\obj\Debug\TestCompanyApi.Services.pdb
