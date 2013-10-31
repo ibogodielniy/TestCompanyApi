@@ -20,6 +20,7 @@ namespace TestCompanyApi
         [Key]
         public int id { get; set; }
 
+        [Required]
         [Column("EmployeeName")]
         [MaxLength(20)]
         public string Name { get; set; }
@@ -28,8 +29,10 @@ namespace TestCompanyApi
         [MaxLength(20)]
         public string LastName { get; set; }
 
+        [Required]
         [Column("EmployeeDiscription")]
         [MaxLength(20)]
         public string Description { get; set; }
+        
     }
 }

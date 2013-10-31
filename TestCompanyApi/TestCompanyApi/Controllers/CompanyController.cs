@@ -23,7 +23,7 @@ namespace TestCompanyApi.Controllers
         // GET api/company
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return null;
         }
 
         // GET api/company/5

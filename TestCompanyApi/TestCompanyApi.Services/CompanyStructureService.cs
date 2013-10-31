@@ -6,39 +6,26 @@ namespace TestCompanyApi.Services
     public class CompanyStructureService
     {
         private CompanyContext _context;
-        private IRepository<Company> _compRepository;
-        private IRepository<Department> _depRepository;
+        private IRepository<Company> _companyRepository;
+        private IRepository<Department> _departmentRepository;
+        private IRepository<EmployeeAllocation> _employeeAllocationRepository;
 
         public CompanyStructureService()
         {
-            var context = new CompanyContext();
-            IRepository<Company> compRepository = new Repository<Company>(_context);
-            IRepository<Department> depRepository = new Repository<Department>(_context);
+            IRepository<Company> compRepository = new Repository<Company>(new CompanyContext());
+            IRepository<Department> depRepository = new Repository<Department>(new CompanyContext());
+            IRepository<EmployeeAllocation> employeeAllocationRepository = new Repository<EmployeeAllocation>(new CompanyContext());
 
-            _depRepository = depRepository;
-            _compRepository = compRepository;
-            _context = context;
+            _departmentRepository = depRepository;
+            _companyRepository = compRepository;
+            
         }
-
-        #region Get
-
-        public List<Company> GetAllCompanies()
-        {
-            return null;
-        }
-
-        public List<Department> GetAllDepartments()
-        {
-          return null;
-        }
-
-        #endregion
-
+        
         #region GetById
 
         public Company GetCompanyById(int id)
         {
-            IEnumerable<Company> companies = _compRepository.Find(c => c.id == id);
+            IEnumerable<Company> companies = _companyRepository.Find(c => c.id == id);
             var sameId = new Company();
 
             if (companies != null)
@@ -51,7 +38,7 @@ namespace TestCompanyApi.Services
 
         public Department GetDepartmentsById(int id)
         {
-            IEnumerable<Department> departments = _depRepository.Find(d => d.id == id);
+            IEnumerable<Department> departments = _departmentRepository.Find(d => d.id == id);
             var sameId = new Department();
 
             if (departments != null)
@@ -71,7 +58,7 @@ namespace TestCompanyApi.Services
             Company company = GetCompanyById(id);
             if (company != null)
                 correctedCompany.id = id;
-            _compRepository.Update(correctedCompany);
+            _companyRepository.Update(correctedCompany);
             _context.SaveChanges();
         }
 
@@ -79,7 +66,7 @@ namespace TestCompanyApi.Services
         {
             Department department = GetDepartmentsById(id);
             if (department != null) correctedDepartment.id = id;
-            _depRepository.Update(correctedDepartment);
+            _departmentRepository.Update(correctedDepartment);
             _context.SaveChanges();
         }
 
@@ -90,14 +77,14 @@ namespace TestCompanyApi.Services
         public void PostCompanie(Company company)
         {
             if (company != null)
-                _compRepository.Add(company);
+                _companyRepository.Add(company);
             _context.SaveChanges();
         }
 
         public void PostDepartment(Department department)
         {
             if (department != null)
-                _depRepository.Add(department);
+                _departmentRepository.Add(department);
             _context.SaveChanges();
         }
 
@@ -108,17 +95,19 @@ namespace TestCompanyApi.Services
         public void DeleteCompanie(int id)
         {
             var company = new Company { id = id };
-            _compRepository.Delete(company);
+            _companyRepository.Delete(company);
             _context.SaveChanges();
         }
 
         public void DeleteDepartment(int id)
         {
             var department = new Department { id = id };
-            _depRepository.Delete(department);
+            _departmentRepository.Delete(department);
             _context.SaveChanges();
         }
 
         #endregion
+
+        
     }
 }

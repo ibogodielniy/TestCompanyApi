@@ -4,21 +4,30 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TestCompanyApi.Services;
 
 namespace TestCompanyApi.Controllers
 {
     public class DepartmentController : ApiController
     {
-        // GET api/department
-        public IEnumerable<string> Get()
+        private CompanyStructureService _service;
+
+        private DepartmentController()
         {
-            return new string[] { "value1", "value2" };
+            var service = new CompanyStructureService();
+            _service = service;
         }
 
+        // GET api/department
+        //public IEnumerable<string> Get()
+        //{
+        //    return "value";
+        //}
+
         // GET api/department/5
-        public string Get(int id)
+        public Department Get(int id)
         {
-            return "value";
+            return _service.GetDepartmentsById(id);
         }
 
         // POST api/department

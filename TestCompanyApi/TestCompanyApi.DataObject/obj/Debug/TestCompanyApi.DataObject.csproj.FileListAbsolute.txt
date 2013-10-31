@@ -2,3 +2,8 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompany
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\TestCompanyApi.DataObject.pdb
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\TestCompanyApi.DataObject.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\TestCompanyApi.DataObject.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.csprojResolveAssemblyReference.cache
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.pdb

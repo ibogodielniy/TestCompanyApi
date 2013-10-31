@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Web.Helpers;
 using System.Web.Http;
-using System.Web.Mvc;
-using Newtonsoft.Json;
 using TestCompanyApi.Services;
 
 namespace TestCompanyApi.Controllers
@@ -14,9 +10,7 @@ namespace TestCompanyApi.Controllers
 
         private EmployeeController()
         {
-            CompanyContext context = new CompanyContext();
-            Repository<Employee> rep = new Repository<Employee>(context);
-            EmployeeService service = new EmployeeService(rep);
+            var service = new EmployeeService(new Repository<Employee>(new CompanyContext()));
             _service = service;
         }
 

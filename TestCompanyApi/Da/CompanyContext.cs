@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+
 
 namespace TestCompanyApi
 {
     public class CompanyContext: DbContext , ICompanyContext
     {
         public CompanyContext() :
-            base("Data Source=(local);Initial Catalog=CompanyTestDB;User ID=sasa;Password=qwe123")
+            base("MyConnection")
         {
-            Database.SetInitializer<CompanyContext>(new CreateDatabaseIfNotExists<CompanyContext>());
+            Database.SetInitializer<CompanyContext>(null); //new CreateDatabaseIfNotExists<CompanyContext>()
         }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

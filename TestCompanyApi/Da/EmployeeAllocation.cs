@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestCompanyApi
 {
-    class EmployeeAllocation
+    public class EmployeeAllocation
     {
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
