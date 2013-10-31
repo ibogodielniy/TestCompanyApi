@@ -16,7 +16,7 @@ namespace TestCompanyApi.Controllers
         {
             CompanyContext context = new CompanyContext();
             Repository<Employee> rep = new Repository<Employee>(context);
-            EmployeeService service = new EmployeeService(rep, context);
+            EmployeeService service = new EmployeeService(rep);
             _service = service;
         }
 

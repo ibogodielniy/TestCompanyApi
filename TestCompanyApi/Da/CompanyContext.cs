@@ -1,13 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace TestCompanyApi
 {
-    public class CompanyContext : DbContext
+    public class CompanyContext: DbContext , ICompanyContext
     {
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Company> Companies { get; set; }
-
         public CompanyContext() :
             base("Data Source=(local);Initial Catalog=CompanyTestDB;User ID=sasa;Password=qwe123")
         {
@@ -26,6 +26,39 @@ namespace TestCompanyApi
                    m.MapRightKey("IdDepartmant");
                    m.ToTable("EmployeeAllocation");
                });
+        }
+
+        public IEnumerable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : class
+        {
+            return this.Set<T>().Where(predicate);
+        }
+
+        public void Add<T>(T entity) where T : class
+        {
+            this.Set<T>().Add(entity);
+            Commit();
+        }
+
+        public void Update<T>(T entity) where T : class
+        {
+            var entry = Entry(entity);
+            if (entry.State == EntityState.Detached)
+            {
+                this.Set<T>().Attach(entity);
+                entry.State = EntityState.Modified;
+            }
+            Commit();
+        }
+
+        public void Remove<T>(T entity) where T : class
+        {
+            this.Set<T>().Remove(entity);
+            Commit();
+        }
+
+        public void Commit()
+        {
+            this.SaveChanges();
         }
     }
 }

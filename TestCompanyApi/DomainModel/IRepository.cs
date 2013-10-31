@@ -10,7 +10,6 @@ namespace TestCompanyApi
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
-        IEnumerable<T> FindAll();
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
     }
 }

@@ -3,52 +3,38 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using TestCompanyApi;
 
 namespace TestCompanyApi
 {
 
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<TItem> : IRepository<TItem> where TItem : class
     {
-        private readonly DbContext _context;
-        private readonly IDbSet<T> _dbset;
+        private ICompanyContext _context;
 
-        public Repository(DbContext context)
+        public Repository(ICompanyContext context)
         {
             _context = context;
-            _dbset = context.Set<T>();
         }
 
-        public virtual void Add(T entity)
+        public virtual void Add(TItem entity)
         {
-            _dbset.Add(entity);
+            _context.Add(entity);
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Delete(TItem entity)
         {
-            var entry = _context.Entry(entity);
-            entry.State = (EntityState)System.Data.EntityState.Deleted;
+            _context.Remove(entity);
         }
 
-        public virtual void Update(T entity)
+        public virtual void Update(TItem entity)
         {
-            //var oldEntry = _context.Entry(entity);
-            // var entry = _context.Entry(entity).CurrentValues.SetValues(entity);
-            //_dbset.Attach(entity);
-            //entry.State = (EntityState)System.Data.EntityState.Modified;
-
-            _dbset.Find(entity);
-            _dbset.Attach(entity);
-            _context.Entry(entity).State = EntityState.Modified;
+            _context.Update(entity);
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        public IEnumerable<TItem> Find(Expression<Func<TItem, bool>> predicate)
         {
-            return _dbset.Where(predicate);
-        }
-
-        public IEnumerable<T> FindAll()
-        {
-            return _dbset;
+            return _context.Find(predicate);
         }
     }
 }

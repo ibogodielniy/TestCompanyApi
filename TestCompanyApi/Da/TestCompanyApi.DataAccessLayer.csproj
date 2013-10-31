@@ -51,6 +51,7 @@
     <Compile Include="Department.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeAllocation.cs" />
+    <Compile Include="ICompanyContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

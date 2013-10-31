@@ -7,17 +7,15 @@ namespace TestCompanyApi.Services
     public class EmployeeService  
     {
         private IRepository<Employee> _repository;
-        private DbContext _context;
 
-        public EmployeeService(IRepository<Employee> repository, DbContext context)
+        public EmployeeService(IRepository<Employee> repository)
         {
             _repository = repository;
-            _context = context;
         }
 
         public List<Employee> GetAllEmployees()
         {
-            return _repository.FindAll().ToList();
+            return null;
         }
 
         public Employee GetEmployeeById(int id)
@@ -63,14 +61,12 @@ namespace TestCompanyApi.Services
             if (emp != null)
                 correctedEmployee.id = id;
                 _repository.Update(correctedEmployee);
-            _context.SaveChanges();
         }
 
         public void PostEmployee(Employee employee)
         {
             if (employee != null)
             _repository.Add(employee);
-            _context.SaveChanges();
         }
 
         public void DeleteEmployee(int id)

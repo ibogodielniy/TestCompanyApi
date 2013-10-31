@@ -24,12 +24,12 @@ namespace TestCompanyApi.Services
 
         public List<Company> GetAllCompanies()
         {
-            return _compRepository.FindAll().ToList();
+            return null;
         }
 
         public List<Department> GetAllDepartments()
         {
-            return _depRepository.FindAll().ToList();
+          return null;
         }
 
         #endregion
