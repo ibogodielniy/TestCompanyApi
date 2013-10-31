@@ -54,7 +54,6 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyA
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\System.Web.WebPages.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\System.Web.WebPages.Razor.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\TestCompanyApi.Services.dll
-C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\nunit.framework.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\DataAccessLayer.pdb
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\Repository.pdb
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\TestCompanyApi.Services.pdb
@@ -70,7 +69,6 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyA
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\System.Web.WebPages.xml
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\System.Web.WebPages.Deployment.xml
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\System.Web.WebPages.Razor.xml
-C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\bin\nunit.framework.xml
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\obj\Debug\TestCompanyApi.csprojResolveAssemblyReference.cache
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\obj\Debug\TestCompanyApi.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi\obj\Debug\TestCompanyApi.pdb

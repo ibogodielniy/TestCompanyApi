@@ -1,39 +1,77 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Data.Entity;
-
+﻿
 namespace TestCompanyApi.Services
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    /// <summary>
+    /// The employee service.
+    /// </summary>
     public class EmployeeService  
     {
+        /// <summary>
+        /// The _repository.
+        /// </summary>
         private IRepository<Employee> _repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeService"/> class.
+        /// </summary>
+        /// <param name="repository">
+        /// The repository.
+        /// </param>
         public EmployeeService(IRepository<Employee> repository)
         {
-            _repository = repository;
+            this._repository = repository;
         }
 
+        /// <summary>
+        /// The get all employees.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="List"/>.
+        /// </returns>
         public List<Employee> GetAllEmployees()
         {
             return null;
         }
 
+        /// <summary>
+        /// The get employee by id.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Employee"/>.
+        /// </returns>
         public Employee GetEmployeeById(int id)
         {
-            IEnumerable<Employee> employees = _repository.Find(e => e.id == id);
+            IEnumerable<Employee> employees = _repository.Find(e => e.Id == id);
             var sameId = new Employee();
 
             if (employees != null)
             {
-                foreach (var employee in employees.Where(employee => employee.id == id))
+                foreach (var employee in employees.Where(employee => employee.Id == id))
+                {
                     sameId = employee;
+                }
             }
             return sameId;
         }
 
+        /// <summary>
+        /// The get employees by last name.
+        /// </summary>
+        /// <param name="lastName">
+        /// The last name.
+        /// </param>
+        /// <returns>
+        /// The <see cref="List"/>.
+        /// </returns>
         public List<Employee> GetEmployeesByLastName(string lastName)
         {
-            IEnumerable<Employee> employees = _repository.Find(e => e.LastName == lastName);
+            IEnumerable<Employee> employees = this._repository.Find(e => e.LastName == lastName);
             var sameLastName = new List<Employee>();
 
             if (employees != null)
@@ -43,9 +81,18 @@ namespace TestCompanyApi.Services
             return sameLastName;
         }
 
+        /// <summary>
+        /// The get employees by name.
+        /// </summary>
+        /// <param name="name">
+        /// The name.
+        /// </param>
+        /// <returns>
+        /// The <see cref="List"/>.
+        /// </returns>
         public List<Employee> GetEmployeesByName(string name)
         {
-            IEnumerable<Employee> employees = _repository.Find(e => e.Name == name);
+            IEnumerable<Employee> employees = this._repository.Find(e => e.Name == name);
             var sameName = new List<Employee>();
 
             if (employees != null)
@@ -55,24 +102,50 @@ namespace TestCompanyApi.Services
             return sameName;
         }
 
+        /// <summary>
+        /// The put employee.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <param name="correctedEmployee">
+        /// The corrected employee.
+        /// </param>
         public void PutEmployee(int id, Employee correctedEmployee)
         {
-            Employee emp = GetEmployeeById(id);
+            Employee emp = this.GetEmployeeById(id);
             if (emp != null)
-                correctedEmployee.id = id;
-                _repository.Update(correctedEmployee);
+            {
+                correctedEmployee.Id = id;
+            }
+
+            this._repository.Update(correctedEmployee);
         }
 
+        /// <summary>
+        /// The post employee.
+        /// </summary>
+        /// <param name="employee">
+        /// The employee.
+        /// </param>
         public void PostEmployee(Employee employee)
         {
             if (employee != null)
-            _repository.Add(employee);
+            {
+                this._repository.Add(employee);
+            }
         }
 
+        /// <summary>
+        /// The delete employee.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
         public void DeleteEmployee(int id)
         {
-            var employee = new Employee {id = id};
-            _repository.Delete(employee);
+            var employee = new Employee { Id = id };
+            this._repository.Delete(employee);
         }
     }
 }
