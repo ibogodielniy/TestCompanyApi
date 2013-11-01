@@ -9,11 +9,10 @@
 
 namespace TestCompanyApi
 {
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-    
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     /// <summary>
     /// Domain class of Company
     /// </summary>
@@ -25,18 +24,17 @@ using System.Data.Entity;
         /// </summary>
         public Company()
         {
-            this.DepartmentAllocation = new HashSet<Department>();
+            this.Departments = new List<Department>();
         }
 
         /// <summary>
         /// Gets or sets collection Companies departments
         /// </summary>
-        public ICollection<Department> DepartmentAllocation { get; set; }
+        public ICollection<Department> Departments { get; set; }
 
         /// <summary>
         /// Gets or sets Company Id
         /// </summary>
-        [Key]
         public int Id { get; set; }
 
         /// <summary>

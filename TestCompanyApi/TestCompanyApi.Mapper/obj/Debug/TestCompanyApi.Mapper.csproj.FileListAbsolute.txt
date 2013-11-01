@@ -1,0 +1,5 @@
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\obj\Debug\TestCompanyApi.Mapper.csprojResolveAssemblyReference.cache
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\TestCompanyApi.Mapper.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\TestCompanyApi.Mapper.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\obj\Debug\TestCompanyApi.Mapper.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\obj\Debug\TestCompanyApi.Mapper.pdb

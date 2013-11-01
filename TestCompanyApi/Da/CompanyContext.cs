@@ -14,53 +14,23 @@ namespace TestCompanyApi
     /// </summary>
     public class CompanyContext : DbContext, ICompanyContext
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CompanyContext"/> class.
-        /// </summary>
         public CompanyContext() :
             base("MyConnection")
         {
-            Database.SetInitializer<CompanyContext>(null);
+            Database.SetInitializer<CompanyContext>(new CreateDatabaseIfNotExists<CompanyContext>());
         }
 
-        /// <summary>
-        /// The find.
-        /// </summary>
-        /// <param name="predicate">
-        /// The predicate.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
-        /// <returns>
-        /// The <see cref="IEnumerable"/>.
-        /// </returns>
         public IEnumerable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : class
         {
             return this.Set<T>().Where(predicate);
         }
 
-        /// <summary>
-        /// The add.
-        /// </summary>
-        /// <param name="entity">
-        /// The entity.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
         public void Add<T>(T entity) where T : class
         {
             this.Set<T>().Add(entity);
             this.Commit();
         }
 
-        /// <summary>
-        /// The update.
-        /// </summary>
-        /// <param name="entity">
-        /// The entity.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
         public void Update<T>(T entity) where T : class
         {
             var entry = this.Entry(entity);
@@ -87,6 +57,26 @@ namespace TestCompanyApi
         /// <summary>
         /// The remove.
         /// </summary>
+        /// <param name="key">
+        /// The key.
+        /// </param>
+        /// <typeparam name="T">
+        /// </typeparam>
+        public void Remove<T>(int key) where T : class
+        {
+            var entity = Set<T>().Find(key);
+            var entry = this.Entry(entity);
+            if (entry != null)
+            {
+                entry.State = EntityState.Detached;
+                this.Set<T>().Remove(entity);
+                this.Commit();
+            }
+        }
+
+        /// <summary>
+        /// The remove.
+        /// </summary>
         /// <param name="entity">
         /// The entity.
         /// </param>
@@ -94,14 +84,13 @@ namespace TestCompanyApi
         /// </typeparam>
         public void Remove<T>(T entity) where T : class
         {
+            var entry = this.Entry(entity);
+            var key = this.GetPrimaryKey(entry);
+            if (this.Set<T>().Find(key) != null)
             {
-                var entry = this.Entry(entity);
-                var key = this.GetPrimaryKey(entry);
-                if (this.Set<T>().Find(key) != null)
-                {
-                    this.Set<T>().Remove(entity);
-                    this.Commit();
-                }
+                entry.State = EntityState.Detached;
+                this.Set<T>().Remove(this.Set<T>().Find(key));
+                this.Commit();
             }
         }
 
@@ -121,16 +110,17 @@ namespace TestCompanyApi
         /// </param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Department>().
-              HasMany(c => c.EmployeeAllocation).
-              WithMany(p => p.DepartmentAllocation).
-              Map(
+            modelBuilder.Entity<Department>().HasMany(c => c.EmployeeAllocation).WithMany(p => p.DepartmentAllocation).Map(
                m =>
                {
                    m.MapLeftKey("IdEmployee");
                    m.MapRightKey("IdDepartmant");
                    m.ToTable("EmployeeAllocation");
                });
+
+            modelBuilder.Entity<Company>().HasKey(company => company.Id);
+            modelBuilder.Entity<Department>().HasKey(department => department.IdDepartment);
+            modelBuilder.Entity<Employee>().HasKey(employee => employee.Id);
         }
 
         /// <summary>
@@ -144,7 +134,7 @@ namespace TestCompanyApi
         /// <returns>
         /// The <see cref="int"/>.
         /// </returns>
-        private int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
+        public int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
         {
             int key = 0;
             var myObject = entry.Entity;

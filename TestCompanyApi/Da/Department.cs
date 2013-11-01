@@ -27,8 +27,7 @@ namespace TestCompanyApi
         /// <summary>
         /// Gets or sets the id.
         /// </summary>
-        [Key]
-        public int Id { get; set; }
+        public int IdDepartment { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -43,6 +42,16 @@ namespace TestCompanyApi
         /// <summary>
         /// Gets or sets the parent department.
         /// </summary>
-        public Department ParentDepartment { get; set; }
+        public Department AncestorDepartment { get; set; }
+
+        /// <summary>
+        /// Gets or sets the company id.
+        /// </summary>
+        public int CompanyId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the parent company.
+        /// </summary>
+        public virtual Company AncestorCompany { get; set; }
     }
 }

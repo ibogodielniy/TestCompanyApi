@@ -7,7 +7,7 @@ namespace TestCompanyApi.Services
     /// <summary>
     /// The employee service.
     /// </summary>
-    public class EmployeeService  
+    public class EmployeeService
     {
         /// <summary>
         /// The _repository.
@@ -47,17 +47,7 @@ namespace TestCompanyApi.Services
         /// </returns>
         public Employee GetEmployeeById(int id)
         {
-            IEnumerable<Employee> employees = _repository.Find(e => e.Id == id);
-            var sameId = new Employee();
-
-            if (employees != null)
-            {
-                foreach (var employee in employees.Where(employee => employee.Id == id))
-                {
-                    sameId = employee;
-                }
-            }
-            return sameId;
+            return this._repository.Find(e => e.Id == id).FirstOrDefault();
         }
 
         /// <summary>

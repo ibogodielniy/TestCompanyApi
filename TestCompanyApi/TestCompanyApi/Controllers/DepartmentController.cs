@@ -12,14 +12,14 @@ namespace TestCompanyApi.Controllers
         /// <summary>
         /// The _service.
         /// </summary>
-        private CompanyStructureService _service;
+        private CompanyRESTService _service;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="DepartmentController"/> class from being created.
         /// </summary>
         private DepartmentController()
         {
-            var service = new CompanyStructureService();
+            var service = new CompanyRESTService();
             this._service = service;
         }
 
