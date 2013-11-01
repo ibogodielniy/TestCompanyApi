@@ -3,7 +3,9 @@ namespace TestCompanyApi
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Linq.Expressions;
 
@@ -18,9 +20,9 @@ namespace TestCompanyApi
         public CompanyContext() :
             base("MyConnection")
         {
-            Database.SetInitializer<CompanyContext>(null); 
+            Database.SetInitializer<CompanyContext>(null);
         }
-        
+
         /// <summary>
         /// The find.
         /// </summary>
@@ -61,13 +63,25 @@ namespace TestCompanyApi
         /// </typeparam>
         public void Update<T>(T entity) where T : class
         {
-            var entry = Entry(entity);
+            var entry = this.Entry(entity);
+            var key = this.GetPrimaryKey(entry);
+
             if (entry.State == EntityState.Detached)
             {
-                this.Set<T>().Attach(entity);
-                entry.State = EntityState.Modified;
+                var currentEntry = this.Set<T>().Find(key);
+                if (currentEntry != null)
+                {
+                    var attachedEntry = this.Entry(currentEntry);
+                    attachedEntry.CurrentValues.SetValues(entity);
+                }
+                else
+                {
+                    this.Set<T>().Attach(entity);
+                    entry.State = EntityState.Modified;
+                }
+
+                this.Commit();
             }
-            this.Commit();
         }
 
         /// <summary>
@@ -80,8 +94,15 @@ namespace TestCompanyApi
         /// </typeparam>
         public void Remove<T>(T entity) where T : class
         {
-            this.Set<T>().Remove(entity);
-            this.Commit();
+            {
+                var entry = this.Entry(entity);
+                var key = this.GetPrimaryKey(entry);
+                if (this.Set<T>().Find(key) != null)
+                {
+                    this.Set<T>().Remove(entity);
+                    this.Commit();
+                }
+            }
         }
 
         /// <summary>
@@ -110,6 +131,30 @@ namespace TestCompanyApi
                    m.MapRightKey("IdDepartmant");
                    m.ToTable("EmployeeAllocation");
                });
+        }
+
+        /// <summary>
+        /// The get primary key.
+        /// </summary>
+        /// <param name="entry">
+        /// The entry.
+        /// </param>
+        /// <typeparam name="T">
+        /// </typeparam>
+        /// <returns>
+        /// The <see cref="int"/>.
+        /// </returns>
+        private int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
+        {
+            int key = 0;
+            var myObject = entry.Entity;
+            var property = myObject.GetType().GetProperties().FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(KeyAttribute)));
+            if (property != null)
+            {
+                key = (int)property.GetValue(myObject, null);
+            }
+
+            return key;
         }
     }
 }
