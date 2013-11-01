@@ -94,14 +94,12 @@ namespace TestCompanyApi
         /// </typeparam>
         public void Remove<T>(T entity) where T : class
         {
+            var entry = this.Entry(entity);
+            var key = this.GetPrimaryKey(entry);
+            if (this.Set<T>().Find(key) != null)
             {
-                var entry = this.Entry(entity);
-                var key = this.GetPrimaryKey(entry);
-                if (this.Set<T>().Find(key) != null)
-                {
-                    this.Set<T>().Remove(entity);
-                    this.Commit();
-                }
+                this.Set<T>().Remove(entity);
+                this.Commit();
             }
         }
 
@@ -146,7 +144,7 @@ namespace TestCompanyApi
         /// </returns>
         private int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
         {
-            int key = 0;
+            var key = 0;
             var myObject = entry.Entity;
             var property = myObject.GetType().GetProperties().FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(KeyAttribute)));
             if (property != null)
