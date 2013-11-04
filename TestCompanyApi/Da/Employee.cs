@@ -1,7 +1,7 @@
 ﻿namespace TestCompanyApi
 {
     using System.Collections.Generic;
-    
+
     public class Employee
     {
         public Employee()
@@ -18,5 +18,6 @@
         public string LastName { get; set; }
 
         public string Description { get; set; }
+
     }
 }

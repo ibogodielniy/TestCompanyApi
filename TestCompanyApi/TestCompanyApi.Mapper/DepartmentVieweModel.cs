@@ -2,15 +2,18 @@
 {
     using System.Collections.Generic;
     using AutoMapper;
-    
+
     public class DepartmentVieweModel
     {
         public DepartmentVieweModel()
         {
-            Mapper.CreateMap<Department, DepartmentVieweModel>();
+            Mapper.CreateMap<Department, DepartmentVieweModel>()
+                .ForMember(
+                    d => d.EmployeeAllocation,
+                    o => o.MapFrom(q => Mapper.Map<ICollection<Employee>, ICollection<EmployeeViewModel>>(q.EmployeeAllocation)));
         }
 
-        public ICollection<EmployeeViewModel> EmployeeAllocation { get; set; }
+        public ICollection<Employee> EmployeeAllocation { get; set; }
 
         public int IdDepartment { get; set; }
 
@@ -21,7 +24,7 @@
         public DepartmentVieweModel AncestorDepartment { get; set; }
 
         public int CompanyId { get; set; }
-        
+
         public DepartmentVieweModel GetDepartmentVieweModel(Department department)
         {
             return Mapper.Map<Department, DepartmentVieweModel>(department);

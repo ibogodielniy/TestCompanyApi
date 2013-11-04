@@ -18,7 +18,7 @@
         public CompanyViewModel Get(int id)
         {
             var dw = new CompanyViewModel();
-            return dw.GetCompanyViewModel(this._service.GetCompanyById(id));
+            return dw.GetCompanyViewModel(this._service.GetCompanyById(id)) ;
         }
     }
 }

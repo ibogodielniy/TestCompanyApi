@@ -89,6 +89,7 @@
                    m.ToTable("EmployeeAllocation");
                });
 
+            
             modelBuilder.Entity<Company>().HasKey(company => company.Id);
             modelBuilder.Entity<Department>().HasKey(department => department.IdDepartment);
             modelBuilder.Entity<Employee>().HasKey(employee => employee.Id);
