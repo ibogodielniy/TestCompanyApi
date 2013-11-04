@@ -3,3 +3,10 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyA
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\TestCompanyApi.Mapper.pdb
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\obj\Debug\TestCompanyApi.Mapper.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\obj\Debug\TestCompanyApi.Mapper.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\AutoMapper.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\AutoMapper.Net4.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\DataAccessLayer.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\EntityFramework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\DataAccessLayer.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\AutoMapper.xml
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.Mapper\bin\Debug\EntityFramework.xml

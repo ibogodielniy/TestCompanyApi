@@ -2,6 +2,8 @@
 namespace TestCompanyApi.Controllers
 {
     using System.Web.Http;
+
+    using TestCompanyApi.Mapper;
     using TestCompanyApi.Services;
 
     /// <summary>
@@ -25,23 +27,11 @@ namespace TestCompanyApi.Controllers
             this._service = service;
         }
 
-        /// <summary>
-        /// The get.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Company"/>.
-        /// </returns>
-        //public Company Get(int id)
-        //{
-        //    return this._service.GetCompanyById(id);
-        //}
+        public CompanyViewModel Get(int id)
+        {
+            var dw = new CompanyViewModel();
+            return dw.GetCompanyViewModel(this._service.GetCompanyById(id));
 
-        //public object Get(int id)
-        //{
-        //    return
-        //}
+        }
     }
 }

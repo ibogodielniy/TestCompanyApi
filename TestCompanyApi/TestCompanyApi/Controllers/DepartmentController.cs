@@ -2,7 +2,11 @@
 namespace TestCompanyApi.Controllers
 {
     using System.Web.Http;
+
+    using TestCompanyApi.Mapper;
     using TestCompanyApi.Services;
+    using TestCompanyApi.Mapper;
+    using AutoMapper;
 
     /// <summary>
     /// The department controller.
@@ -34,9 +38,10 @@ namespace TestCompanyApi.Controllers
         /// <returns>
         /// The <see cref="Department"/>.
         /// </returns>
-        public Department Get(int id)
+        public DepartmentVieweModel Get(int id)
         {
-            return this._service.GetDepartmentsById(id);
+            var dw = new DepartmentVieweModel();
+            return dw.GetDepartmentVieweModel(this._service.GetDepartmentsById(id));
         }
     }
 }

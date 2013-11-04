@@ -7,3 +7,7 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyA
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.csprojResolveAssemblyReference.cache
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\obj\Debug\TestCompanyApi.DataObject.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\DataAccessLayer.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\EntityFramework.dll
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\DataAccessLayer.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\TestCompanyApi.DataObject\bin\Debug\EntityFramework.xml

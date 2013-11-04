@@ -2,10 +2,16 @@
 namespace TestCompanyApi.Mapper
 {
     using System.Collections.Generic;
+    using AutoMapper;
 
     /// <summary></summary>
-    public class CompanyVieweModel
+    public class CompanyViewModel
     {
+        public CompanyViewModel()
+        {
+            Mapper.CreateMap<Company, CompanyViewModel>();
+        }
+
         /// <summary></summary>
         public ICollection<DepartmentVieweModel> Departments { get; set; }
 
@@ -17,5 +23,10 @@ namespace TestCompanyApi.Mapper
 
         /// <summary></summary>
         public string Description { get; set; }
+
+        public CompanyViewModel GetCompanyViewModel(Company company)
+        {
+            return Mapper.Map<Company, CompanyViewModel>(company);
+        }
     }
 }

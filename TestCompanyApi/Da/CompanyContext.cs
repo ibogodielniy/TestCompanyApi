@@ -134,7 +134,7 @@ namespace TestCompanyApi
         /// <returns>
         /// The <see cref="int"/>.
         /// </returns>
-        public int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
+        
         private int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
         {
             var key = 0;

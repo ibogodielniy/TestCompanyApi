@@ -44,6 +44,12 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Da\TestCompanyApi.DataAccessLayer.csproj">
+      <Project>{cf1d2f99-7cbb-493e-b6c8-c1cb25b87610}</Project>
+      <Name>TestCompanyApi.DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

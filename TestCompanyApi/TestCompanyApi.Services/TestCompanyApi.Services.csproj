@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -57,6 +60,10 @@
     <ProjectReference Include="..\DomainModel\TestCompanyApi.Repository.csproj">
       <Project>{ee5cfbe4-8850-4c4d-a87e-caa3a485ce1a}</Project>
       <Name>TestCompanyApi.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestCompanyApi.Mapper\TestCompanyApi.MappingLayer.csproj">
+      <Project>{040cbd35-574f-4e6e-81ad-9b2f8cbb81cd}</Project>
+      <Name>TestCompanyApi.MappingLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

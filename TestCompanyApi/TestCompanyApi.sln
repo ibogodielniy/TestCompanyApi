@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCompanyApi.DataObject",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCompanyApi.DomainModel", "TestCompanyApi.DomainModel\TestCompanyApi.DomainModel.csproj", "{0E06E0E7-14A1-4E3A-B8A9-C22D25DE6DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCompanyApi.Mapper", "TestCompanyApi.Mapper\TestCompanyApi.Mapper.csproj", "{040CBD35-574F-4E6E-81AD-9B2F8CBB81CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCompanyApi.MappingLayer", "TestCompanyApi.Mapper\TestCompanyApi.MappingLayer.csproj", "{040CBD35-574F-4E6E-81AD-9B2F8CBB81CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
