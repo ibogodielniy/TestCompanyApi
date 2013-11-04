@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestCompanyApi.Services
+﻿namespace TestCompanyApi.Services
 {
-    class EmployeeViewModel
+    using System.Collections.Generic;
+
+    public class EmployeeViewModel
     {
         public int Id { get; set; }
         

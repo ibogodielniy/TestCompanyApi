@@ -1,5 +1,4 @@
-﻿
-namespace TestCompanyApi
+﻿namespace TestCompanyApi
 {
     using System;
     using System.Collections.Generic;
@@ -9,15 +8,12 @@ namespace TestCompanyApi
     using System.Linq;
     using System.Linq.Expressions;
 
-    /// <summary>
-    /// The company context.
-    /// </summary>
     public class CompanyContext : DbContext, ICompanyContext
     {
         public CompanyContext() :
             base("MyConnection")
         {
-            Database.SetInitializer<CompanyContext>(new CreateDatabaseIfNotExists<CompanyContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<CompanyContext>());
         }
 
         public IEnumerable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : class
@@ -54,14 +50,6 @@ namespace TestCompanyApi
             }
         }
 
-        /// <summary>
-        /// The remove.
-        /// </summary>
-        /// <param name="key">
-        /// The key.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
         public void Remove<T>(int key) where T : class
         {
             var entity = Set<T>().Find(key);
@@ -74,14 +62,6 @@ namespace TestCompanyApi
             }
         }
 
-        /// <summary>
-        /// The remove.
-        /// </summary>
-        /// <param name="entity">
-        /// The entity.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
         public void Remove<T>(T entity) where T : class
         {
             var entry = this.Entry(entity);
@@ -94,20 +74,11 @@ namespace TestCompanyApi
             }
         }
 
-        /// <summary>
-        /// The commit.
-        /// </summary>
         public void Commit()
         {
             this.SaveChanges();
         }
 
-        /// <summary>
-        /// The on model creating.
-        /// </summary>
-        /// <param name="modelBuilder">
-        /// The model builder.
-        /// </param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Department>().HasMany(c => c.EmployeeAllocation).WithMany(p => p.DepartmentAllocation).Map(
@@ -122,18 +93,6 @@ namespace TestCompanyApi
             modelBuilder.Entity<Department>().HasKey(department => department.IdDepartment);
             modelBuilder.Entity<Employee>().HasKey(employee => employee.Id);
         }
-
-        /// <summary>
-        /// The get primary key.
-        /// </summary>
-        /// <param name="entry">
-        /// The entry.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
-        /// <returns>
-        /// The <see cref="int"/>.
-        /// </returns>
         
         private int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
         {

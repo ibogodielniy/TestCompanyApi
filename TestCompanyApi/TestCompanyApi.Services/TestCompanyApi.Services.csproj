@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyRESTService.cs" />
-    <Compile Include="CompanyStructureService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="EmployeeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
