@@ -5,15 +5,7 @@
 
     public class DepartmentVieweModel
     {
-        public DepartmentVieweModel()
-        {
-            Mapper.CreateMap<Department, DepartmentVieweModel>()
-                .ForMember(
-                    d => d.EmployeeAllocation,
-                    o => o.MapFrom(q => Mapper.Map<ICollection<Employee>, ICollection<EmployeeViewModel>>(q.EmployeeAllocation)));
-        }
-
-        public ICollection<Employee> EmployeeAllocation { get; set; }
+        ////public virtual ICollection<EmployeeViewModel> EmployeeAllocation { get; set; }
 
         public int IdDepartment { get; set; }
 
@@ -21,9 +13,11 @@
 
         public string Description { get; set; }
 
-        public DepartmentVieweModel AncestorDepartment { get; set; }
+        ////public Department AncestorDepartment { get; set; }
 
         public int CompanyId { get; set; }
+
+        public ICollection<Department> ChilDepartments { get; set; }
 
         public DepartmentVieweModel GetDepartmentVieweModel(Department department)
         {

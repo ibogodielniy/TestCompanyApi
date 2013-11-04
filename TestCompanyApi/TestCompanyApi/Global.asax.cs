@@ -3,6 +3,7 @@
     using System.Web.Http;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using TestCompanyApi.Mapper;
 
     using TestCompanyApi.App_Start;
 
@@ -17,6 +18,7 @@
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MapperConfigurator.Configure();
         }
     }
 }

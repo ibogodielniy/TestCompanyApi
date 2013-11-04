@@ -6,11 +6,6 @@
 
     public class CompanyViewModel
     {
-        public CompanyViewModel()
-        {
-            Mapper.CreateMap<Company, CompanyViewModel>().ForMember(d => d.Departments, o => o.MapFrom(src => src.Departments));
-        }
-
         public ICollection<Department> Departments { get; set; }
 
         public int Id { get; set; }

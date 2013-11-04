@@ -89,6 +89,9 @@
                    m.ToTable("EmployeeAllocation");
                });
 
+            modelBuilder.Entity<Department>().HasOptional(x => x.AncestorDepartment)
+            .WithMany(y => y.ChilDepartments)
+            .HasForeignKey(x => x.AncestorDepartment_IdDepartment);
             
             modelBuilder.Entity<Company>().HasKey(company => company.Id);
             modelBuilder.Entity<Department>().HasKey(department => department.IdDepartment);

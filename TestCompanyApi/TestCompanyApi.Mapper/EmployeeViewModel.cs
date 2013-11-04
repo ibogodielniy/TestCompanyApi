@@ -6,13 +6,7 @@ namespace TestCompanyApi.Mapper
     
     public class EmployeeViewModel
     {
-        private EmployeeViewModel()
-        {
-            Mapper.CreateMap<Employee, EmployeeViewModel>().ForMember(
-                d => d.DepartmentAllocation, 
-                o => o.MapFrom(q => Mapper.Map<ICollection<Department>, ICollection<DepartmentVieweModel>>(q.DepartmentAllocation)));
-        }
-
+        
         public int Id { get; set; }
 
         public ICollection<Department> DepartmentAllocation { get; set; }
