@@ -2,13 +2,13 @@
 {
     using System.Linq;
 
-    public class CompanyRESTService
+    public class CompanyService
     {
         private readonly IRepository<Company> _companyRepository;
 
         private readonly IRepository<Department> _departmentRepository;
 
-        public CompanyRESTService()
+        public CompanyService()
         {
             IRepository<Company> compRepository = new Repository<Company>(new CompanyContext());
             IRepository<Department> depRepository = new Repository<Department>(new CompanyContext());
@@ -18,25 +18,25 @@
             this._companyRepository = compRepository;
         }
         
-        #region GetById
+        #region Find
         
-        public Company GetCompanyById(int id)
+        public Company FindCompanyById(int id)
         {
            return this._companyRepository.Find(c => c.Id == id).FirstOrDefault();
         }
        
-        public Department GetDepartmentsById(int id)
+        public Department FindDepartmentsById(int id)
         {
             return this._departmentRepository.Find(d => d.IdDepartment == id).FirstOrDefault();
         }
 
         #endregion
 
-        #region Put
+        #region Edit
         
-        public void PutCompany(int id, Company correctedCompany)
+        public void EditCompany(int id, Company correctedCompany)
         {
-            Company company = this.GetCompanyById(id);
+            Company company = this.FindCompanyById(id);
             if (company != null)
             {
                 correctedCompany.Id = id;
@@ -45,9 +45,9 @@
             this._companyRepository.Update(correctedCompany);
         }
 
-        public void PutDepartment(int id, Department correctedDepartment)
+        public void EditDepartment(int id, Department correctedDepartment)
         {
-            Department department = this.GetDepartmentsById(id);
+            Department department = this.FindDepartmentsById(id);
             if (department != null)
             {
                 correctedDepartment.IdDepartment = id;
@@ -58,9 +58,9 @@
 
         #endregion
 
-        #region Post
+        #region Add
         
-        public void PostCompany(Company company)
+        public void AddCompany(Company company)
         {
             if (company != null)
             {
@@ -68,7 +68,7 @@
             }
         }
 
-        public void PostDepartment(Department department)
+        public void AddDepartment(Department department)
         {
             if (department != null)
             {
@@ -78,15 +78,15 @@
 
         #endregion
 
-        #region Delete
+        #region Remove
 
-        public void DeleteCompany(int id)
+        public void RemoveCompany(int id)
         {
             var company = new Company { Id = id };
             this._companyRepository.Delete(company);
         }
 
-        public void DeleteDepartment(int id)
+        public void RemoveDepartment(int id)
         {
             var department = new Department { IdDepartment = id };
             this._departmentRepository.Delete(department);

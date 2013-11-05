@@ -12,9 +12,9 @@
             this._repository = repository;
         }
 
-        public List<Employee> GetAllEmployees()
+        public IEnumerable<Employee> GetAllEmployees()
         {
-            return null;
+            return this._repository.Find(e => true);
         }
 
         public Employee GetEmployeeById(int id)

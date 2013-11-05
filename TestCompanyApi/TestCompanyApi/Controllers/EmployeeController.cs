@@ -2,10 +2,13 @@
 {
     using System.Collections.Generic;
     using System.Web.Http;
+
+    using TestCompanyApi.Mapper;
     using TestCompanyApi.Services;
 
-   public class EmployeeController : ApiController
+    public class EmployeeController : ApiController
     {
+        ViewModel vm = new ViewModel();
         private readonly EmployeeService _service;
 
         private EmployeeController()
@@ -15,15 +18,15 @@
         }
 
         // GET api/employee
-        public IEnumerable<Employee> Get()
+        public IEnumerable<EmployeeViewModel> Get()
         {
-            return this._service.GetAllEmployees();
+            return this.vm.GetEmployeeViewModels(this._service.GetAllEmployees());
         }
 
         // GET api/employee/5
-        public Employee Get(int id)
+        public EmployeeViewModel Get(int id)
         {
-            return this._service.GetEmployeeById(id);
+            return this.vm.GetEmployeeViewModel(this._service.GetEmployeeById(id));
         }
 
         // POST api/employee

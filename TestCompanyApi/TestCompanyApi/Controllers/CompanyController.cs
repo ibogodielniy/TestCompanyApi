@@ -7,18 +7,18 @@
     
     public class CompanyController : ApiController
     {
-        private readonly CompanyRESTService _service;
+        private readonly CompanyService _service;
         
         private CompanyController()
         {
-            var service = new CompanyRESTService();
+            var service = new CompanyService();
             this._service = service;
         }
 
         public CompanyViewModel Get(int id)
         {
-            var dw = new CompanyViewModel();
-            return dw.GetCompanyViewModel(this._service.GetCompanyById(id));
+            var dw = new ViewModel();
+            return dw.GetCompanyViewModel(this._service.FindCompanyById(id));
         }
     }
 }

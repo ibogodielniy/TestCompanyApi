@@ -7,19 +7,19 @@
     
     public class DepartmentController : ApiController
     {
-        private readonly CompanyRESTService _service;
+        private readonly CompanyService _service;
         
         private DepartmentController()
         {
-            var service = new CompanyRESTService();
+            var service = new CompanyService();
             this._service = service;
         }
 
         // GET api/department/5
         public DepartmentVieweModel Get(int id)
         {
-            var dw = new DepartmentVieweModel();
-            return dw.GetDepartmentVieweModel(this._service.GetDepartmentsById(id));
+            var dw = new ViewModel();
+            return dw.GetDepartmentVieweModel(this._service.FindDepartmentsById(id));
         }
     }
 }
