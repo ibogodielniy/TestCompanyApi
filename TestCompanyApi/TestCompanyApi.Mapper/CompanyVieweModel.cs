@@ -6,7 +6,7 @@
 
     public class CompanyViewModel
     {
-        public ICollection<Department> Departments { get; set; }
+        public ICollection<DepartmentVieweModel> Departments { get; set; }
 
         public int Id { get; set; }
 

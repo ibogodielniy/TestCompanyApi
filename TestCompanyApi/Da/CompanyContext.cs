@@ -81,23 +81,32 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Department>().HasMany(c => c.EmployeeAllocation).WithMany(p => p.DepartmentAllocation).Map(
-               m =>
-               {
-                   m.MapLeftKey("IdEmployee");
-                   m.MapRightKey("IdDepartmant");
-                   m.ToTable("EmployeeAllocation");
-               });
+            this.Configuration.LazyLoadingEnabled = true;
 
-            modelBuilder.Entity<Department>().HasOptional(x => x.AncestorDepartment)
-            .WithMany(y => y.ChilDepartments)
-            .HasForeignKey(x => x.AncestorDepartment_IdDepartment);
-            
-            modelBuilder.Entity<Company>().HasKey(company => company.Id);
-            modelBuilder.Entity<Department>().HasKey(department => department.IdDepartment);
-            modelBuilder.Entity<Employee>().HasKey(employee => employee.Id);
+            modelBuilder.Entity<Company>()
+                .HasKey(company => company.Id)
+                .HasMany(company => company.Departments)
+                .WithRequired(department => department.AncestorCompany)
+                .HasForeignKey(department => department.CompanyId);
+
+            modelBuilder.Entity<Department>()
+                .HasKey(departmant => departmant.IdDepartment)
+                .HasMany(department => department.ChilDepartments)
+                .WithOptional(departmant => departmant.AncestorDepartment)
+                .HasForeignKey(department => department.AncestorDepartment_IdDepartment);
+
+            modelBuilder.Entity<Employee>()
+                .HasKey(employee => employee.Id)
+                .HasMany(employee => employee.DepartmentAllocation)
+                .WithMany(company => company.EmployeeAllocation)
+                .Map(m =>
+                {
+                    m.MapLeftKey("IdEmployee");
+                    m.MapRightKey("IdDepartmant");
+                    m.ToTable("EmployeeAllocation");
+                });
         }
-        
+
         private int GetPrimaryKey<T>(DbEntityEntry<T> entry) where T : class
         {
             var key = 0;

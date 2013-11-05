@@ -4,14 +4,9 @@
 
     public class Employee
     {
-        public Employee()
-        {
-            this.DepartmentAllocation = new HashSet<Department>();
-        }
-
         public int Id { get; set; }
 
-        public ICollection<Department> DepartmentAllocation { get; set; }
+        public virtual ICollection<Department> DepartmentAllocation { get; set; }
 
         public string Name { get; set; }
 

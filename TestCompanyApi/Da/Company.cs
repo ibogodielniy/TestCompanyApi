@@ -6,12 +6,7 @@
     [Table("Companies")]
     public class Company
     {
-        public Company()
-        {
-            this.Departments = new List<Department>();
-        }
-
-        public ICollection<Department> Departments { get; set; }
+        public virtual ICollection<Department> Departments { get; set; }
 
         public int Id { get; set; }
 
