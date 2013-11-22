@@ -22,19 +22,6 @@
             return this._repository.Find(e => e.Id == id).FirstOrDefault();
         }
 
-        public List<Employee> GetEmployeesByLastName(string lastName)
-        {
-            IEnumerable<Employee> employees = this._repository.Find(e => e.LastName == lastName);
-            var sameLastName = new List<Employee>();
-
-            if (employees != null)
-            {
-                sameLastName.AddRange(employees.Where(employee => employee.LastName == lastName));
-            }
-
-            return sameLastName;
-        }
-
         public List<Employee> GetEmployeesByName(string name)
         {
             IEnumerable<Employee> employees = this._repository.Find(e => e.Name == name);

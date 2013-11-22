@@ -1,0 +1,92 @@
+.span1 {
+    display: inline ;
+    background-color: white;
+}
+
+.row-fluid{
+    background-color: lightgrey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.container{
+             padding-top: 10px;
+}
+
+.panel-title{
+    background-color: rgba(118, 120, 120, 0.47);
+    height: 30px;
+    width: 383px;
+    border-radius: 3px;
+    margin: 20px;
+    color: #1a1a1a;
+    font-family: Calibri;
+    font: 200;
+    text-align: center;
+font-weight: bold;
+    position: relative;
+}
+
+.panel-body{
+    background-color: rgba(118, 120, 120, 0.47);
+    width: 383px;
+    border-radius: 3px;
+    margin: 20px;
+    color: #1a1a1a;
+    font-family: Calibri;
+    font: 200;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.treeRow{
+    display: inline-block;
+}
+
+.row-fluid{
+    padding: 10px;
+    width: auto;
+}
+
+.treeconteiner{
+
+    border-radius: 5px;
+    background-color: antiquewhite;
+    height: 600px;
+    overflow: auto;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.footer{
+    text-align: center
+}
+
+.treePlace{
+ overflow: auto;
+}
+
+.template{
+    display: none;
+}
+
+.companySelect
+{
+    background-color: antiquewhite;
+}
+
+.main-conteiner{
+    border-radius: 5px;
+}
+
+.top-nav{
+    background-color: antiquewhite;
+}
+
+.company-select-label{
+    padding-top: 15px;
+}
+

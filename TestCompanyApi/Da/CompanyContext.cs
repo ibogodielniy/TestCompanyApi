@@ -68,7 +68,7 @@
             var key = this.GetPrimaryKey(entry);
             if (this.Set<T>().Find(key) != null)
             {
-                this.Set<T>().Remove(entity);
+                //this.Set<T>().Remove(entity);
                 this.Set<T>().Remove(this.Set<T>().Find(key));
                 this.Commit();
             }
@@ -111,7 +111,9 @@
         {
             var key = 0;
             var myObject = entry.Entity;
+
             var property = myObject.GetType().GetProperties().FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(KeyAttribute)));
+
             if (property != null)
             {
                 key = (int)property.GetValue(myObject, null);

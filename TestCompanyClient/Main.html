@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>My Comapny API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mystyle.css">
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+
+</head>
+<body>
+<!-- Navigation -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" style="color: antiquewhite" href="">My Comapny API</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a style="color: antiquewhite" id="header-home-btn" href="">Home</a></li>
+                    <li><a style="color: antiquewhite" id="header-abput-btn" href="">About</a></li>
+                    <li><a style="color: antiquewhite" id="header-contact-btn" href="">Contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<!-- Body -->
+
+<div class="container">
+    <h1>Test Application API</h1>
+
+    <div class="row-fluid main-conteiner">
+        <div class="row-fluid">
+            <div class="span2">
+                <label class="company-select-label"><strong>Select Company: </strong></label>
+            </div>
+
+            <div class="span6" style="padding-top: 10px;">
+                <p>
+                    <select class="company-select"></select>
+                </p>
+            </div>
+            <div class="span2" style="text-align: center">
+                <button class="add-department-modal-btn">Add Department</button>
+            </div>
+            <div class="span2" style="text-align: center">
+                <button class="add-employee-modal-btn">Add Employee</button>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="treeconteiner">
+                    <div class="treeRow" id="companyConteiner">
+                        <div id="tree1">
+
+                            <div class="panel">
+                                <div class="panelName"></div>
+                                <div id="tree"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span6 treePlace">
+                <div class="treeconteiner">
+                    <div class="treeRow" id="employeeConteiner">
+                    </div>
+                    <div class="panel-group" id="accordion">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+
+    <div class="row-fluid">
+        <div class="span12 footer"><p>(c) Copyright 2013</p></div>
+    </div>
+
+    <!--Accordions-->
+
+    <div class="panel panel-default template">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                   href="#collapseThree">
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="panel-info">
+                    <div class="info-phone"></div>
+                    <div class="info-email"></div>
+                </div>
+                <button class="edit-employee-modal-btn">Edit Employee</button>
+                <button class="delete-employee-btn">Delete Employee</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modals-->
+
+<!--Add Employee Modal-->
+
+<div class="modal fade modal-template" id="add-employee-modal">
+    <div class="modal-header">
+        <button class="close close-add-emp-btn" id="add-close-emplyee-modal-btn" data-dismiss="modal">×</button>
+        <h3>Add Employee</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <label for="add-employee-name-inp">Name</label>
+            <input type="text" id="add-employee-name-inp"><br>
+            <label for="add-employee-phone-inp">Phone</label>
+            <input type="tel" id="add-employee-phone-inp"><br>
+            <label for="add-employee-email-inp">E-mail</label>
+            <input type="email" id="add-employee-email-inp"><br>
+            <label for="add-employee-dep-inp">Select Department</label>
+            <select id="add-employee-dep-inp"></select>
+            <label for="add-employee-altdep-inp">Select Alternative Department</label>
+            <select id="add-employee-altdep-inp"></select>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a type="button" class="btn btn-primary" id="add-submit-emplyee-btn">Save</a>
+    </div>
+</div>
+
+<!--Edit Employee Modal-->
+
+<div class="modal fade" id="edit-employee-modal">
+    <div class="modal-header">
+        <button class="close close-edit-emp-btn" id="edit-close-emplyee-modal-btn" data-dismiss="modal">×</button>
+        <h3>Edit Employee</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <label id="editEmpId">Employee Id_ </label>
+            <label for="edit-employee-name-inp">Name</label>
+            <input type="text" placeholder="<%=item.Name%>" id="edit-employee-name-inp"><br>
+            <label for="edit-employee-phone-inp">Phone</label>
+            <input type="tel" placeholder="<%=item.Phone%>" id="edit-employee-phone-inp"><br>
+            <label for="edit-employee-email-inp">E-mail</label>
+            <input type="email" placeholder="<%=item.Email%>" id="edit-employee-email-inp"><br>
+            <label for="edit-employee-dep-inp">Select Department</label>
+            <select id="edit-employee-dep-inp"></select>
+            <label for="edit-employee-altdep-inp">Select Alternative Department</label>
+            <select id="edit-employee-altdep-inp"></select>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a type="button" class="btn btn-primary" id="edit-submit-emplyee-btn">Save</a>
+    </div>
+</div>
+
+<!--Department Modals-->
+
+<!--Add Department Modal-->
+
+<div class="modal fade" id="add-department-modal">
+    <div class="modal-header">
+        <button class="close close-add-dep-btn" id="add-close-department-modal-btn" data-dismiss="modal">×</button>
+        <h3>Add Department</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <label for="add-department-name-inp">Name</label>
+            <input type="text" id="add-department-name-inp"><br>
+            <label for="add-department-description-inp">Description</label>
+            <input type="tel" id="add-department-description-inp"><br>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a type="button" class="btn btn-primary" id="add-submit-department-btn">Save</a>
+    </div>
+</div>
+
+<!--Edit Department Modal-->
+
+<div class="modal fade" id="edit-department-modal">
+    <div class="modal-header">
+        <button class="close close-edit-dep-btn" id="edit-close-department-modal-btn" data-dismiss="modal">×</button>
+        <h3>Edit Department</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <label for="edit-department-name-inp">Name</label>
+            <input type="text" id="edit-department-name-inp"><br>
+            <label for="edit-department-description-inp">Description</label>
+            <input type="tel" id="edit-department-description-inp"><br>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a type="button" class="btn btn-primary" id="edit-submit-department-btn">Save</a>
+    </div>
+</div>
+
+<script src="jQery.js"></script>
+<script src="./js/bootstrap-modal.js"></script>
+<script src="./js/bootstrap-transition.js"></script>
+<script src="PlayGround.js"></script>
+<script src="./js/bootstrap-collapse.js"></script>
+<script src="./js/jquery-cookie-1.4.0/jquery.cookie.js"></script>
+<script src="underscore.js"></script>
+</body>
+</html>

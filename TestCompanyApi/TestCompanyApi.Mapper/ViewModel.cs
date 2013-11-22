@@ -25,5 +25,15 @@
         {
             return Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(employees);
         }
+
+        public IEnumerable<CompanyViewModel> GetCompaniesViewModels(IEnumerable<Company> companies)
+        {
+            return Mapper.Map<IEnumerable<Company>, IEnumerable<CompanyViewModel>>(companies);
+        }
+
+        public IEnumerable<DepartmentVieweModel> GetDepartmentsViewModels(IEnumerable<Department> departments)
+        {
+            return Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentVieweModel>>(departments);
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace TestCompanyApi
+﻿namespace TestCompanyApi.App_Start
 {
     using System.Web.Mvc;
     using System.Web.Routing;

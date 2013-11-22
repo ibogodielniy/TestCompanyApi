@@ -1,5 +1,6 @@
 ﻿namespace TestCompanyApi.Services
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     public class CompanyService
@@ -28,6 +29,16 @@
         public Department FindDepartmentsById(int id)
         {
             return this._departmentRepository.Find(d => d.IdDepartment == id).FirstOrDefault();
+        }
+
+        public IEnumerable<Company> FindAllCompanies()
+        {
+            return this._companyRepository.Find(c => true);
+        }
+
+        public IEnumerable<Department> FindAllDepartments()
+        {
+            return this._departmentRepository.Find(d => true);
         }
 
         #endregion

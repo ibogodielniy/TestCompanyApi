@@ -1,14 +1,15 @@
 ﻿namespace TestCompanyApi.Controllers
 {
     using System.Collections.Generic;
+    using System.Web;
     using System.Web.Http;
 
     using TestCompanyApi.Mapper;
     using TestCompanyApi.Services;
-
+    
     public class EmployeeController : ApiController
     {
-        ViewModel vm = new ViewModel();
+        private ViewModel vm = new ViewModel();
         private readonly EmployeeService _service;
 
         private EmployeeController()
@@ -53,6 +54,14 @@
             {
                 this._service.DeleteEmployee(id);
             }
+        }
+
+        [HttpOptions]
+        public void Options()
+        {
+            //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+            HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Headers", "X-Requested-With");
         }
     }
 }

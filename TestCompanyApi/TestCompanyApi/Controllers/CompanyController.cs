@@ -1,5 +1,6 @@
 ﻿namespace TestCompanyApi.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Http;
 
     using TestCompanyApi.Mapper;
@@ -15,10 +16,17 @@
             this._service = service;
         }
 
+        private ViewModel wModel = new ViewModel();
+
         public CompanyViewModel Get(int id)
         {
-            var dw = new ViewModel();
-            return dw.GetCompanyViewModel(this._service.FindCompanyById(id));
+           
+            return this.wModel.GetCompanyViewModel(this._service.FindCompanyById(id));
+        }
+
+        public IEnumerable<CompanyViewModel> Get()
+        {
+            return this.wModel.GetCompaniesViewModels(this._service.FindAllCompanies());
         }
     }
 }
