@@ -1,6 +1,7 @@
 ﻿namespace TestCompanyApi.Controllers
 {
     using System.Collections.Generic;
+    using System.Web;
     using System.Web.Http;
 
     using TestCompanyApi.Mapper;
@@ -45,6 +46,14 @@
         public void Put(int id, [FromBody] Department department)
         {
             this._service.EditDepartment(id, department);
+        }
+
+        [HttpOptions]
+        public void Options()
+        {
+            //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+            HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Headers", "X-Requested-With");
         }
     }
 }

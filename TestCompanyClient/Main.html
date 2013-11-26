@@ -124,8 +124,6 @@
 
 <!--Modals-->
 
-<!--Add Employee Modal-->
-
 <div class="modal fade modal-template" id="add-employee-modal">
     <div class="modal-header">
         <button class="close close-add-emp-btn" id="add-close-emplyee-modal-btn" data-dismiss="modal">×</button>
@@ -133,7 +131,7 @@
     </div>
     <div class="modal-body">
         <form>
-            <label for="add-employee-name-inp">Name</label>
+            <label for="add-employee-name-inp" >Name</label>
             <input type="text" id="add-employee-name-inp"><br>
             <label for="add-employee-phone-inp">Phone</label>
             <input type="tel" id="add-employee-phone-inp"><br>
@@ -147,33 +145,6 @@
     </div>
     <div class="modal-footer">
         <a type="button" class="btn btn-primary" id="add-submit-emplyee-btn">Save</a>
-    </div>
-</div>
-
-<!--Edit Employee Modal-->
-
-<div class="modal fade" id="edit-employee-modal">
-    <div class="modal-header">
-        <button class="close close-edit-emp-btn" id="edit-close-emplyee-modal-btn" data-dismiss="modal">×</button>
-        <h3>Edit Employee</h3>
-    </div>
-    <div class="modal-body">
-        <form>
-            <label id="editEmpId">Employee Id_ </label>
-            <label for="edit-employee-name-inp">Name</label>
-            <input type="text" placeholder="<%=item.Name%>" id="edit-employee-name-inp"><br>
-            <label for="edit-employee-phone-inp">Phone</label>
-            <input type="tel" placeholder="<%=item.Phone%>" id="edit-employee-phone-inp"><br>
-            <label for="edit-employee-email-inp">E-mail</label>
-            <input type="email" placeholder="<%=item.Email%>" id="edit-employee-email-inp"><br>
-            <label for="edit-employee-dep-inp">Select Department</label>
-            <select id="edit-employee-dep-inp"></select>
-            <label for="edit-employee-altdep-inp">Select Alternative Department</label>
-            <select id="edit-employee-altdep-inp"></select>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a type="button" class="btn btn-primary" id="edit-submit-emplyee-btn">Save</a>
     </div>
 </div>
 
@@ -199,32 +170,67 @@
     </div>
 </div>
 
-<!--Edit Department Modal-->
+<div id="target"></div>
 
-<div class="modal fade" id="edit-department-modal">
-    <div class="modal-header">
-        <button class="close close-edit-dep-btn" id="edit-close-department-modal-btn" data-dismiss="modal">×</button>
-        <h3>Edit Department</h3>
+<script type="text/html" id='template'>
+    <div class="modal fade" id="department-modal">
+        <div class="modal-header">
+            <button class="close close-edit-dep-btn" id="close" data-dismiss="modal">×
+            </button>
+            <h3>Edit Department</h3>
+        </div>
+        <div class="modal-body">
+            <form>
+                <label for="edit-department-name-inp"></label>
+                <input type="text" id="edit-department-name-inp" value="<%= item.name%>"><br>
+                <label for="edit-department-description-inp"></label>
+                <input type="tel" id="edit-department-description-inp" value="<%= item.description%>"><br>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a type="button" class="btn btn-primary" id="submit">Save</a>
+        </div>
     </div>
-    <div class="modal-body">
-        <form>
-            <label for="edit-department-name-inp">Name</label>
-            <input type="text" id="edit-department-name-inp"><br>
-            <label for="edit-department-description-inp">Description</label>
-            <input type="tel" id="edit-department-description-inp"><br>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a type="button" class="btn btn-primary" id="edit-submit-department-btn">Save</a>
-    </div>
-</div>
+</script>
 
-<script src="jQery.js"></script>
-<script src="./js/bootstrap-modal.js"></script>
-<script src="./js/bootstrap-transition.js"></script>
-<script src="PlayGround.js"></script>
-<script src="./js/bootstrap-collapse.js"></script>
-<script src="./js/jquery-cookie-1.4.0/jquery.cookie.js"></script>
-<script src="underscore.js"></script>
+<script type="text/html" id='employee-template'>
+    <div class="modal fade" id="edit-employee-modal">
+        <div class="modal-header">
+            <button class="close close-edit-emp-btn" id="edit-close-emplyee-modal-btn" data-dismiss="modal">×</button>
+            <h3>Edit Employee</h3>
+        </div>
+        <div class="modal-body">
+            <form>
+                <label id="editEmpId">Employee Id_ </label>
+                <label for="edit-employee-name-inp">Name</label>
+                <input type="text" value="<%=employee.name%>" id="edit-employee-name-inp"><br>
+                <label for="edit-employee-phone-inp">Phone</label>
+                <input type="tel" value="<%=employee.phone%>"  id="edit-employee-phone-inp"><br>
+                <label for="edit-employee-email-inp">E-mail</label>
+                <input type="email" value="<%=employee.email%>" id="edit-employee-email-inp"><br>
+                <label for="edit-employee-dep-inp">Select Department</label>
+                <select id="edit-employee-dep-inp"></select>
+                <label for="edit-employee-altdep-inp">Select Alternative Department</label>
+                <select id="edit-employee-altdep-inp"></select>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a type="button" class="btn btn-primary" id="edit-submit-emplyee-btn">Save</a>
+        </div>
+    </div>
+</script>
+
+<script src="js/jQery.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="Mediator.js"></script>
+<script src="Main.js"></script>
+<script src="AjaxModule.js"></script>
+<script src="CompanyModule.js"></script>
+<script src="EmpliyeeWidget.js"></script>
+<script src="DepartmentWidget.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/jquery-cookie-1.4.0/jquery.cookie.js"></script>
+<script src="js/underscore.js"></script>
 </body>
 </html>
