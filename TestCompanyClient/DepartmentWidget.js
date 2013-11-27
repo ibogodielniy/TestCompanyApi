@@ -51,12 +51,19 @@ $(document).ready(function () {
         var Id = $(this).attr('data-dId');
         mediator.publish('departmentSelected', Id);
     });
+
+    $('.toggable-ul ul').hide();
+
+    $(document).delegate('.toggable', 'click', function () {
+        $(this).find('ul').slideToggle();
+    });
 });
 
 var DepartmentModule = {
 
     AddDepartment: function () {
         $(Page.Modals.AddDepartment).modal('show');
+
     },
 
     SubmitDepartment: function () {
@@ -92,40 +99,44 @@ var DepartmentModule = {
         });
     },
 
-    appendToTree: function (departments, parentCompany) {
+    appendToTree: function (departments) {
         var ul = document.createElement("ul");
+        ul.className = 'toggable-ul';
         for (var i = 0, n = departments.length; i < n; i++) {
             var department = departments[i];
-
             var li = document.createElement("li");
             var text = document.createTextNode(department.Name);
             var div = document.createElement('div');
+            var innerdiv = document.createElement('div');
             var editbtn = document.createElement('button');
             var deletebtn = document.createElement('button');
-            var selectbutton = document.createElement('button')
-
-            selectbutton.appendChild(document.createTextNode('Select'));
+            var selectbtn = document.createElement('button');
+            selectbtn.appendChild(document.createTextNode('Select'));
             editbtn.appendChild(document.createTextNode('Edit'));
-            div.setAttribute('data-did', department.IdDepartment);
-            editbtn.className += 'edit-department-modal-btn';
-            selectbutton.className += 'select-dep-btn';
             deletebtn.appendChild(document.createTextNode('Delete'));
+            innerdiv.className += 'btn-group';
+            editbtn.className += 'edit-department-modal-btn hideble btn btn-default';
+            selectbtn.className += 'select-dep-btn hideble btn btn-default';
+            deletebtn.className += 'delete-department-btn hideble btn btn-default';
+            div.className += 'treeNode';
             deletebtn.setAttribute('data-dId', department.IdDepartment);
             editbtn.setAttribute('data-dId', department.IdDepartment);
-            selectbutton.setAttribute('data-dId', department.IdDepartment);
-            deletebtn.className += 'delete-department-btn';
-            div.className += 'treeNode';
+            selectbtn.setAttribute('data-dId', department.IdDepartment);
+            innerdiv.appendChild(editbtn);
+            innerdiv.appendChild(deletebtn);
+            innerdiv.appendChild(selectbtn);
+            div.setAttribute('data-did', department.IdDepartment);
+            div.appendChild(innerdiv);
             div.appendChild(text);
-            div.appendChild(editbtn);
-            div.appendChild(deletebtn);
-            div.appendChild(selectbutton);
+            div.appendChild(innerdiv);
             li.appendChild(div);
-
             if (department.ChilDepartments) {
-                li.appendChild(DepartmentModule.appendToTree(department.ChilDepartments, parentCompany));
+                li.appendChild(DepartmentModule.appendToTree(department.ChilDepartments));
+                //li.className += 'toggable';
                 ul.appendChild(li);
             }
         }
+
         return ul;
     },
 
@@ -148,15 +159,22 @@ var DepartmentModule = {
     }
 };
 
-mediator.subscribe('CompanySelected', function (parentCompany) {
-    var departments = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl).responseText);
+mediator.subscribe('CompanySelected', function (CompanyId) {
+    var departments = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentByCompany + CompanyId).responseText);
     $('#companyConteiner').empty();
     function renderTree() {
         var treeEl = document.getElementById("companyConteiner");
-        treeEl.appendChild(DepartmentModule.appendToTree(departments, parentCompany)); //reorganize
+        treeEl.appendChild(DepartmentModule.appendToTree(departments));
+        $('.hideble').hide();
+
+        $('.treeNode').on('mouseover',function () {
+            $(this).find('.hideble').show();
+        }).on('mouseout', function () {
+                $('.hideble').hide();
+            });
     }
+
     renderTree();
 });
-
 
 

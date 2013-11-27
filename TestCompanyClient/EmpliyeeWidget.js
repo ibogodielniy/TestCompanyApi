@@ -22,53 +22,67 @@ Page.Tabs.EmployeeTab.EditTab.EmployeeAltDepInp = $('#edit-employee-altdep-inp')
 Page.Tabs.EmployeeTab.DeleteBtn = $('.delete-employee-btn');
 
 //Modals:
-Page.Modals.AddEmployee = $('#add-employee-modal');
-Page.Modals.EditEmployee = $('#edit-employee-modal');
+Page.Modals.addEmployee = $('#add-employee-modal');
+Page.Modals.editEmployee = $('#edit-employee-modal');
 
 var hash = 2;
 $template = $(".template");
 
 $(document).ready(function () {
     Page.Tabs.EmployeeTab.AddTab.OpenBtn.on('click', function () {
-        EmployeeModule.AddEmployee();
+        EmployeeModule.addEmployee();
     });
 
     Page.Tabs.EmployeeTab.AddTab.SubmitBtn.on('click', function () {
-        EmployeeModule.SubmitEmployee();
+        EmployeeModule.submitEmployee();
         $(document).trigger('submitEmployee')
     });
 
     Page.Tabs.EmployeeTab.AddTab.CloseBtn.on('click', function () {
-        EmployeeModule.CloseAddEmployeeModal();
+        EmployeeModule.closeAddEmployeeModal();
     });
 
     Page.Tabs.EmployeeTab.EditTab.CloseBtn.on('click', function () {
-        EmployeeModule.CloseEmployeeEditModal();
+        EmployeeModule.closeEmployeeEditModal();
     });
 
     $('.delete-employee-btn').on('click', function () {
-        EmployeeModule.DeleteEmployee($(this).attr("eid"));
+        EmployeeModule.deleteEmployee($(this).attr("eid"));
         $(document).trigger('deleteEmployee')
     });
 
     $('.edit-employee-modal-btn').on('click', function () {
-        EmployeeModule.OpenEmployeeModal($(this).attr("eId"));
+        EmployeeModule.openEmployeeModal($(this).attr("eId"));
+    });
+
+    $(document).delegate('#add-employee-company-inp',function(){
+        var compId = $(this).attr('value');
+        EmployeeModule.populateDepartmentDropdown(compId);
     });
 });
 
 var EmployeeModule = {
 
-    AddEmployee: function () {
+    addEmployee: function () {
         $('#add-employee-modal').modal('show');
+        var company = JSON.parse(AjaxModule.GetJSON(Page.Urls.CompaniesUrl).responseText);
+        $.each(company, function () {
+            var option = document.createElement("option");
+            option.innerHTML = this.Name;
+            option.value = this.Id;
+            $('#add-employee-company-inp').append(option);
+        });
+
+
     },
 
-    CloseAddEmployeeModal: function () {
+    closeAddEmployeeModal: function () {
         $('#add-employee-modal').modal('hide');
     },
 
-    EditEmployee: function (employee) {
+    editEmployee: function (employee) {
 
-        Page.Modals.EditEmployee.modal('show');
+        Page.Modals.editEmployee.modal('show');
         $("#editEmpId").val(employee.Id).data('eId', employee.Id);
         Page.Tabs.EmployeeTab.EditTab.EmployeeNameInp.val(employee.Name);
         Page.Tabs.EmployeeTab.EditTab.EmployeePhoneInp.val(employee.Phone);
@@ -78,31 +92,31 @@ var EmployeeModule = {
             employee.Phone = Page.Tabs.EmployeeTab.EditTab.EmployeePhoneInp.val();
             employee.Email = Page.Tabs.EmployeeTab.EditTab.EmployeeEmailInp.val();
             AjaxModule.PutJSON(Page.Urls.EmployeeUrl, employee, employee.Id);
-            this.CloseEmployeeEditModal();
+            this.closeEmployeeEditModal();
         });
     },
 
-    CloseEmployeeEditModal: function () {
+    closeEmployeeEditModal: function () {
         $('#edit-employee-modal').modal('hide');
     },
 
-    DeleteEmployee: function (Id) {
+    deleteEmployee: function (Id) {
         AjaxModule.DeleteJSON(Page.Urls.EmployeeUrl, Id);
     },
 
-    SubmitEmployee: function () {
+    submitEmployee: function () {
         this.clearEmployeeList();
         var employee = {};
         employee.Name = Page.Tabs.EmployeeTab.AddTab.EmployeeNameInp.val();
         employee.Phone = Page.Tabs.EmployeeTab.AddTab.EmployeePhoneInp.val();
         employee.Email = Page.Tabs.EmployeeTab.AddTab.EmployeeEmailInp.val();
         AjaxModule.PostJSON(Page.Urls.EmployeeUrl, employee);
-        this.CloseAddEmployeeModal();
+        this.closeAddEmployeeModal();
         this.getEmployeeFromJSON();
     },
 
-    getEmployeeFromJSON: function () {
-        var employee = JSON.parse(AjaxModule.GetJSON(Page.Urls.EmployeeUrl).responseText);
+    getEmployeeFromJSON: function (DepId) {
+        var employee = JSON.parse(AjaxModule.GetJSON(Page.Urls.EmployeeByDepartment + DepId).responseText);
         for (var i = 0, len = employee.length; i < len; i++) {
             this.addPanel(employee[i].Id, employee[i].Name, employee[i].Email, employee[i].Phone);
         }
@@ -124,7 +138,7 @@ var EmployeeModule = {
         $("#accordion").append($newPanel.fadeIn());
     },
 
-    OpenEmployeeModal: function (Id) {
+    openEmployeeModal: function (Id) {
         var employees = JSON.parse(AjaxModule.GetJSON(Page.Urls.EmployeeUrl).responseText);
         for (var i = 0, n = employees.length; i < n; i++) {
             var employee = employees[i];
@@ -139,13 +153,24 @@ var EmployeeModule = {
             employee.Phone = $('#edit-employee-phone-inp').val();
             employee.Email = $('#edit-employee-email-inp').val();
             AjaxModule.PutJSON(Page.Urls.EmployeeUrl, employee, Id);
-            EmployeeModule.CloseEmployeeEditModal();
+            EmployeeModule.closeEmployeeEditModal();
+        });
+    },
+
+    populateDepartmentDropdown: function(companyId){
+        var company = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentByCompany+companyId).responseText);
+        $.each(company, function () {
+            var option = document.createElement("option");
+            option.innerHTML = this.Name;
+            option.value = this.IdDepartment;
+            Page.Tabs.EmployeeTab.EditTab.EmployeeDepInp.append(option);
         });
     }
 };
 
 mediator.subscribe('departmentSelected', function (Id) {
-alert('department selected' + Id);
+    EmployeeModule.clearEmployeeList();
+    EmployeeModule.getEmployeeFromJSON(Id);
 });
 
-EmployeeModule.getEmployeeFromJSON();
+

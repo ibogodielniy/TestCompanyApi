@@ -2,7 +2,9 @@ var Page = {
     Urls: {
         EmployeeUrl: 'http://localhost:15571/api/employee/',
         CompaniesUrl: 'http://localhost:15571/api/company/',
-        DepartmentsUrl: 'http://localhost:15571/api/department/'
+        DepartmentsUrl: 'http://localhost:15571/api/department/',
+        EmployeeByDepartment: 'http://localhost:15571/api/employee/GetEmployeeByDepartments/',
+        DepartmentByCompany: 'http://localhost:15571/api/department/GetDepartmentsByCompany/'
     },
     Elements: {},
     Modals: {},
@@ -27,26 +29,25 @@ Page.Tabs.HeaderTab.ContactBtn = $('#header-contact-btn');
 //Page.Tabs.HeaderTab.LogOut = $('#header-logout-btn');
 
 
-
 /*EmployeeModule.init();
 
-EmployeeModule = (function () {
-    var changeContext = function (depId) {
+ EmployeeModule = (function () {
+ var changeContext = function (depId) {
 
-        //todo smth
-    }
+ //todo smth
+ }
 
-    var initInternalHandlers = function () {
-        //$(/..).on("cliuck",...)
-    }
+ var initInternalHandlers = function () {
+ //$(/..).on("cliuck",...)
+ }
 
-    return {
-        init: function () {
-            observer.registerHandler("", changeContext);
-            initInternalHandlers();
-        }
-    }
-})();*/
+ return {
+ init: function () {
+ observer.registerHandler("", changeContext);
+ initInternalHandlers();
+ }
+ }
+ })();*/
 /*
 
  $(document).on('companyselected', function () {

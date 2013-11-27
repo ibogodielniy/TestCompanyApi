@@ -3,10 +3,11 @@
     using System.Collections.Generic;
     using System.Web;
     using System.Web.Http;
+    using System.Web.Mvc;
 
     using TestCompanyApi.Mapper;
     using TestCompanyApi.Services;
-    
+
     public class EmployeeController : ApiController
     {
         private ViewModel vm = new ViewModel();
@@ -14,14 +15,19 @@
 
         private EmployeeController()
         {
-            var service = new EmployeeService(new Repository<Employee>(new CompanyContext()));
+            var service = new EmployeeService(new Repository<Employee>(new CompanyContext()), new Repository<Department>(new CompanyContext()));
             this._service = service;
         }
 
-        // GET api/employee
-        public IEnumerable<EmployeeViewModel> Get()
+        //GET api/employee
+        public IEnumerable<EmployeeViewModel> GetAllEmployees()
         {
             return this.vm.GetEmployeeViewModels(this._service.GetAllEmployees());
+        }
+
+        public IEnumerable<EmployeeViewModel> GetEmployeeByDepartments(int id)
+        {
+            return this.vm.GetEmployeeViewModels(this._service.GetEmployeesByDept(id));
         }
 
         // GET api/employee/5
@@ -56,7 +62,7 @@
             }
         }
 
-        [HttpOptions]
+        [System.Web.Http.HttpOptions]
         public void Options()
         {
             //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");

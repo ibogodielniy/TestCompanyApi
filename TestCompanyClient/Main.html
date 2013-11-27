@@ -53,16 +53,20 @@
                 <label class="company-select-label"><strong>Select Company: </strong></label>
             </div>
 
-            <div class="span6" style="padding-top: 10px;">
+            <div class="span6">
                 <p>
                     <select class="company-select"></select>
                 </p>
             </div>
-            <div class="span2" style="text-align: center">
-                <button class="add-department-modal-btn">Add Department</button>
+            <div class="span2">
+                <button class="add-department-modal-btn btn btn-default btn-lg"><i class="glyphicon glyphicon-star"></i>
+                    Add Department
+                </button>
             </div>
-            <div class="span2" style="text-align: center">
-                <button class="add-employee-modal-btn">Add Employee</button>
+            <div class="span2">
+                <button class="add-employee-modal-btn btn btn-default btn-lg">
+                    Add Employee
+                </button>
             </div>
         </div>
 
@@ -137,10 +141,13 @@
             <input type="tel" id="add-employee-phone-inp"><br>
             <label for="add-employee-email-inp">E-mail</label>
             <input type="email" id="add-employee-email-inp"><br>
+            <label for="add-employee-company-inp">Select Company</label>
+            <select id="add-employee-company-inp"></select>
             <label for="add-employee-dep-inp">Select Department</label>
             <select id="add-employee-dep-inp"></select>
             <label for="add-employee-altdep-inp">Select Alternative Department</label>
             <select id="add-employee-altdep-inp"></select>
+
         </form>
     </div>
     <div class="modal-footer">
@@ -176,7 +183,7 @@
     <div class="modal fade" id="department-modal">
         <div class="modal-header">
             <button class="close close-edit-dep-btn" id="close" data-dismiss="modal">×
-            </button>
+            </button >
             <h3>Edit Department</h3>
         </div>
         <div class="modal-body">

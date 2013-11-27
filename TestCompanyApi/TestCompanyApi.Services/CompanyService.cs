@@ -9,14 +9,17 @@
 
         private readonly IRepository<Department> _departmentRepository;
 
+        private readonly IRepository<EmployeeAllocation> _allocationRepository; 
+
         public CompanyService()
         {
             IRepository<Company> compRepository = new Repository<Company>(new CompanyContext());
             IRepository<Department> depRepository = new Repository<Department>(new CompanyContext());
-            new Repository<EmployeeAllocation>(new CompanyContext());
+            IRepository<EmployeeAllocation> allocRepository = new Repository<EmployeeAllocation>(new CompanyContext());
 
             this._departmentRepository = depRepository;
             this._companyRepository = compRepository;
+            this._allocationRepository = allocRepository;
         }
         
         #region Find
@@ -31,6 +34,13 @@
             return this._departmentRepository.Find(d => d.IdDepartment == id).FirstOrDefault();
         }
 
+        public IEnumerable<EmployeeAllocation> GetEmployeeByDepartment(int id)
+        {
+            var dep = new Department() { IdDepartment = id };
+            return this._allocationRepository.Find(d => d.Departments.Contains(dep)); 
+                //Employees.Where(s => s.DepartmentAllocation.Contains(dep)));
+        }
+
         public IEnumerable<Company> FindAllCompanies()
         {
             return this._companyRepository.Find(c => true);
@@ -39,6 +49,11 @@
         public IEnumerable<Department> FindAllDepartments()
         {
             return this._departmentRepository.Find(d => true);
+        }
+
+        public IEnumerable<Department> FindAllCompanysDepartments(int id)
+        {
+            return this._departmentRepository.Find(d => d.CompanyId == id);
         }
 
         #endregion

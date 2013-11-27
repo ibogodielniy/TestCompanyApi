@@ -20,7 +20,6 @@
 
         public CompanyViewModel Get(int id)
         {
-           
             return this.wModel.GetCompanyViewModel(this._service.FindCompanyById(id));
         }
 

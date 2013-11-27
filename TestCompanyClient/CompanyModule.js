@@ -1,11 +1,9 @@
 Page.Tabs.CompanyTab.CompanySelect = $('.company-select');
 
 $(document).ready(function () {
-    //Company UI functions:
     Page.Tabs.CompanyTab.CompanySelect.change(function () {
-        var CompanyId = $(this).children("option").attr('value');
+        var CompanyId = $(".company-select option:selected").val();
         mediator.publish('CompanySelected', CompanyId);
-        //ComapanyModule.SelectCompany(CompanyId);
     });
 });
 

@@ -96,7 +96,6 @@ body{
 
 .treeNode{
     background-color: rgba(118, 120, 120, 0.47);
-    width: auto;
     border-radius: 3px;
     margin: 20px;
     color: #1a1a1a;
@@ -105,6 +104,9 @@ body{
     text-align: center;
     font-weight: bold;
     position: relative;
+    height: 60px;
+    width: 300px;
+    text-align: left;
 }
 
 .modal{
@@ -117,3 +119,18 @@ body{
 .treeNode ol li { }
 .treeNode ol li ol { list-style-image: url("../img/images/nested.png"); padding:5px 0 5px 18px; font-size:15px; }
 .treeNode ol li ol li { color:#bfe1f1; height:15px; margin-left:10px; }
+
+.toggable{
+    list-style: square url('http://www.webbossuk.com/admin/images/reply-arrow.png');
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.toggable-ul{
+    list-style: square url('http://www.webbossuk.com/admin/images/reply-arrow.png');
+    font-weight: normal;
+    cursor: pointer;
+}
+
+
+

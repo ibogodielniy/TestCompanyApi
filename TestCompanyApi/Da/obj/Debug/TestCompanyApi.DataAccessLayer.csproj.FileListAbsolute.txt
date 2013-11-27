@@ -17,6 +17,6 @@ C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyA
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\bin\Debug\AutoMapper.xml
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\bin\Debug\EntityFramework.xml
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\obj\Debug\TestCompanyApi.DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\obj\Debug\DataAccessLayer.dll
 C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\obj\Debug\DataAccessLayer.pdb
+C:\Users\devnet\Documents\Visual Studio 2012\Projects\MyCollections\TestCompanyApi\Da\obj\Debug\TestCompanyApi.DataAccessLayer.csprojResolveAssemblyReference.cache

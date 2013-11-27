@@ -1,5 +1,6 @@
 ﻿namespace TestCompanyApi.Services
 {
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -7,9 +8,13 @@
     {
         private IRepository<Employee> _repository;
 
-        public EmployeeService(IRepository<Employee> repository)
+        private IRepository<Department> _depRepository;
+
+
+        public EmployeeService(IRepository<Employee> repository, IRepository<Department> depRepository)
         {
             this._repository = repository;
+            this._depRepository = depRepository;
         }
 
         public IEnumerable<Employee> GetAllEmployees()
@@ -33,6 +38,11 @@
             }
 
             return sameName;
+        }
+
+        public IEnumerable<Employee> GetEmployeesByDept(int depId)
+        {
+            return this._depRepository.Find(d => d.IdDepartment == depId).SelectMany(d => d.EmployeeAllocation);
         }
 
         public void PutEmployee(int id, Employee correctedEmployee)

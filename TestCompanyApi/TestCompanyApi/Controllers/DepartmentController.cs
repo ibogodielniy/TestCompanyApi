@@ -30,6 +30,11 @@
             return this.dw.GetDepartmentsViewModels(this._service.FindAllDepartments());
         }
 
+        public IEnumerable<DepartmentVieweModel> GetDepartmentsByCompany(int id)
+        {
+            return this.dw.GetDepartmentsViewModels(this._service.FindAllCompanysDepartments(id));
+        }
+
         [System.Web.Mvc.HttpPost]
         public void Delete(int id)
         {
