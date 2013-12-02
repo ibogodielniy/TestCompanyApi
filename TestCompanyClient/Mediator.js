@@ -30,7 +30,4 @@ var mediator = (function () {
 *       mediator.publish(event, args);
 *to subscribe event:
 *       mediator.subscribe(event, func-handler());
-*
-*
-*
 * */

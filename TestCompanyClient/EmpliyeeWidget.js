@@ -46,19 +46,19 @@ $(document).ready(function () {
         EmployeeModule.closeEmployeeEditModal();
     });
 
-    $('.delete-employee-btn').on('click', function () {
+    $(document).delegate('.delete-employee-btn', 'click', function () {
         EmployeeModule.deleteEmployee($(this).attr("eid"));
         $(document).trigger('deleteEmployee')
     });
 
-    $('.edit-employee-modal-btn').on('click', function () {
+    $(document).delegate('.edit-employee-modal-btn','click', function () {
         EmployeeModule.openEmployeeModal($(this).attr("eId"));
     });
 
-    $(document).delegate('#add-employee-company-inp',function(){
+    /*$(document).delegate('#add-employee-company-inp',function(){
         var compId = $(this).attr('value');
         EmployeeModule.populateDepartmentDropdown(compId);
-    });
+    });*/
 });
 
 var EmployeeModule = {
@@ -72,8 +72,6 @@ var EmployeeModule = {
             option.value = this.Id;
             $('#add-employee-company-inp').append(option);
         });
-
-
     },
 
     closeAddEmployeeModal: function () {
@@ -133,7 +131,7 @@ var EmployeeModule = {
         $newPanel.find(".panel-collapse").attr("id", hash).addClass("collapse").removeClass("in");
         $newPanel.find(".info-phone").text(Phone);
         $newPanel.find(".info-email").text(Email);
-        $newPanel.find('.edit-employee-modal-btn').attr("eId", Id); //.data("Name", Name).data("dId", Id).data("Phone", Phone).data("Email", Email);
+        $newPanel.find('.edit-employee-modal-btn').attr("eId", Id);
         $newPanel.find(".delete-employee-btn").attr("eId", Id);
         $("#accordion").append($newPanel.fadeIn());
     },

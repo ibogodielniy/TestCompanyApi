@@ -35,5 +35,20 @@
         {
             return Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentVieweModel>>(departments);
         }
+
+        public Department GetDepartmentFromViewModel(DepartmentVieweModel departmentVm)
+        {
+            return Mapper.Map<DepartmentVieweModel, Department>(departmentVm);
+        }
+
+        public Employee GetEmployeeFromViewModel(EmployeeViewModel employeeVm)
+        {
+            return Mapper.Map<EmployeeViewModel, Employee>(employeeVm);
+        }
+
+        public Company GetCompanyFromViewModel(CompanyViewModel companyVm)
+        {
+            return Mapper.Map<CompanyViewModel, Company>(companyVm);
+        }
     }
 }

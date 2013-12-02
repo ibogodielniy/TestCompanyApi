@@ -82,6 +82,17 @@
             this._departmentRepository.Update(correctedDepartment);
         }
 
+        //public void PutEmployee(int id, Employee correctedEmployee)
+        //{
+        //    Employee emp = this.GetEmployeeById(id);
+        //    if (emp != null)
+        //    {
+        //        correctedEmployee.Id = id;
+        //    }
+
+        //    this._repository.Update(correctedEmployee);
+        //}
+
         #endregion
 
         #region Add

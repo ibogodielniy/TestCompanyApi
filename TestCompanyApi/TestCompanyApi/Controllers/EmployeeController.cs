@@ -38,18 +38,18 @@
 
         // POST api/employee
         [System.Web.Mvc.HttpPost]
-        public void Post([FromBody]Employee employee)
+        public void Post([FromBody]EmployeeViewModel employee)
         {
-            this._service.PostEmployee(employee);
+            this._service.PostEmployee(this.vm.GetEmployeeFromViewModel(employee));
         }
 
         // PUT api/employee/5
         [System.Web.Mvc.HttpPut]
-        public void Put(int id, [FromBody]Employee employee)
+        public void Put(int id, [FromBody]EmployeeViewModel employee)
         {
             if (this._service.GetEmployeeById(id) != null)
             {
-                this._service.PutEmployee(id, employee);
+                this._service.PutEmployee(id, this.vm.GetEmployeeFromViewModel(employee));
             }
         }
 

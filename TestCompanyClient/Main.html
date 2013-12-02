@@ -45,53 +45,49 @@
 <!-- Body -->
 
 <div class="container">
-    <h1>Test Application API</h1>
+<h1>Test Application API</h1>
 
-    <div class="row-fluid main-conteiner">
-        <div class="row-fluid">
-            <div class="span2">
-                <label class="company-select-label"><strong>Select Company: </strong></label>
-            </div>
-
-            <div class="span6">
-                <p>
-                    <select class="company-select"></select>
-                </p>
-            </div>
-            <div class="span2">
-                <button class="add-department-modal-btn btn btn-default btn-lg"><i class="glyphicon glyphicon-star"></i>
-                    Add Department
-                </button>
-            </div>
-            <div class="span2">
-                <button class="add-employee-modal-btn btn btn-default btn-lg">
-                    Add Employee
-                </button>
-            </div>
+<div class="row-fluid main-conteiner">
+    <div class="row-fluid">
+        <div class="span2">
+            <label class="company-select-label"><strong>Select Company: </strong></label>
         </div>
 
-        <div class="row-fluid">
-            <div class="span6">
-                <div class="treeconteiner">
-                    <div class="treeRow" id="companyConteiner">
-                        <div id="tree1">
+        <div class="span6">
+            <p>
+                <select class="company-select"></select>
+            </p>
+        </div>
+        <div class="span2">
+            <button class="add-department-modal-btn btn btn-default btn-lg"><i class="glyphicon glyphicon-star"></i>
+                Add Department
+            </button>
+        </div>
+        <div class="span2">
+            <button class="add-employee-modal-btn btn btn-default btn-lg">
+                Add Employee
+            </button>
+        </div>
+    </div>
 
-                            <div class="panel">
-                                <div class="panelName"></div>
-                                <div id="tree"></div>
-                            </div>
-
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="treeconteiner">
+                <div class="treeRow" id="companyConteiner">
+                    <div id="tree1">
+                        <div class="panel">
+                            <div class="panelName"></div>
+                            <div id="tree"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="span6 treePlace">
-                <div class="treeconteiner">
-                    <div class="treeRow" id="employeeConteiner">
-                    </div>
-                    <div class="panel-group" id="accordion">
-                    </div>
+        <div class="span6 treePlace">
+            <div class="treeconteiner">
+                <div class="treeRow" id="accordion">
+
                 </div>
             </div>
         </div>
@@ -135,7 +131,7 @@
     </div>
     <div class="modal-body">
         <form>
-            <label for="add-employee-name-inp" >Name</label>
+            <label for="add-employee-name-inp">Name</label>
             <input type="text" id="add-employee-name-inp"><br>
             <label for="add-employee-phone-inp">Phone</label>
             <input type="tel" id="add-employee-phone-inp"><br>
@@ -183,7 +179,7 @@
     <div class="modal fade" id="department-modal">
         <div class="modal-header">
             <button class="close close-edit-dep-btn" id="close" data-dismiss="modal">×
-            </button >
+            </button>
             <h3>Edit Department</h3>
         </div>
         <div class="modal-body">
@@ -212,7 +208,7 @@
                 <label for="edit-employee-name-inp">Name</label>
                 <input type="text" value="<%=employee.name%>" id="edit-employee-name-inp"><br>
                 <label for="edit-employee-phone-inp">Phone</label>
-                <input type="tel" value="<%=employee.phone%>"  id="edit-employee-phone-inp"><br>
+                <input type="tel" value="<%=employee.phone%>" id="edit-employee-phone-inp"><br>
                 <label for="edit-employee-email-inp">E-mail</label>
                 <input type="email" value="<%=employee.email%>" id="edit-employee-email-inp"><br>
                 <label for="edit-employee-dep-inp">Select Department</label>
@@ -228,6 +224,9 @@
 </script>
 
 <script src="js/jQery.js"></script>
+
+<!--<script type="text/javascript" src='js/jquery.js'></script> -->
+<script src="UI.js"></script>
 <script src="js/bootstrap-modal.js"></script>
 <script src="js/bootstrap-transition.js"></script>
 <script src="Mediator.js"></script>

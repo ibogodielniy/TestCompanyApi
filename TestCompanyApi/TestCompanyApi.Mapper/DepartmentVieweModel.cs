@@ -12,6 +12,8 @@
 
         public int CompanyId { get; set; }
 
-        public ICollection<DepartmentVieweModel> ChilDepartments { get; set; }
+        public int? AncestorDepartment_IdDepartment { get; set; }
+
+        //public ICollection<DepartmentVieweModel> ChilDepartments { get; set; }
     }
 }
