@@ -4,7 +4,7 @@
     <list default="true" id="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" name="Default" comment="" />
     <ignored path="TestCompanyClient.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.html" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385638366498" ignored="false" />
+    <file path="/Main.html" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1386074685088" ignored="false" />
     <file path="/mystyle.css" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385633670217" ignored="false" />
     <file path="/PlayGround.html" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1383922915552" ignored="false" />
     <file path="/Dummy.regexp" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1383922258437" ignored="false" />
@@ -14,8 +14,8 @@
     <file path="/Data.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1384552738708" ignored="false" />
     <file path="/temaplate.html" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385039380501" ignored="false" />
     <file path="/template.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385041743975" ignored="false" />
-    <file path="/DepartmentWidget.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385996845346" ignored="false" />
-    <file path="/EmpliyeeWidget.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385733575304" ignored="false" />
+    <file path="/DepartmentWidget.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1386065316587" ignored="false" />
+    <file path="/EmpliyeeWidget.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1386075832198" ignored="false" />
     <file path="/CompanyModule.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385557321623" ignored="false" />
     <file path="/Mediator.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385466573678" ignored="false" />
     <file path="/Main.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385652570134" ignored="false" />
@@ -23,6 +23,7 @@
     <file path="$PROJECT_DIR$/js/jquery-ui-1.10.3/demos/index.html" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385565609582" ignored="false" />
     <file path="$PROJECT_DIR$/js/jquery-ui-1.10.3/tests/unit/testsuite.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385565609582" ignored="false" />
     <file path="/web.config" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1385567009256" ignored="false" />
+    <file path="/AjaxModule.js" changelist="6e42c3d1-cbc0-45ba-8813-5ea0a0f86986" time="1386001512625" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +46,7 @@
       <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="80" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
+            <state line="12" column="82" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -54,7 +55,7 @@
       <file leaf-file-name="Main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="90" selection-start="2878" selection-end="2878" vertical-scroll-proportion="-12.423077">
+            <state line="215" column="78" selection-start="8374" selection-end="8374" vertical-scroll-proportion="-26.115385">
               <folding />
             </state>
           </provider>
@@ -63,7 +64,7 @@
       <file leaf-file-name="Mediator.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mediator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="44" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.0">
+            <state line="22" column="47" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -72,25 +73,25 @@
       <file leaf-file-name="CompanyModule.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompanyModule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="22" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+            <state line="7" column="45" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmpliyeeWidget.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EmpliyeeWidget.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EmpliyeeWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="60" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
+            <state line="46" column="63" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.8937143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DepartmentWidget.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DepartmentWidget.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DepartmentWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="40" selection-start="5825" selection-end="5825" vertical-scroll-proportion="0.63085717">
+            <state line="168" column="59" selection-start="6227" selection-end="6227" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,7 +109,7 @@
       <file leaf-file-name="AjaxModule.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AjaxModule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="28" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
+            <state line="1" column="2" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,7 +129,6 @@
         <option value="$PROJECT_DIR$/Modals.js" />
         <option value="$PROJECT_DIR$/modals.html" />
         <option value="$PROJECT_DIR$/PlayGround.js" />
-        <option value="$PROJECT_DIR$/AjaxModule.js" />
         <option value="$PROJECT_DIR$/temaplate.html" />
         <option value="$PROJECT_DIR$/Core.js" />
         <option value="$PROJECT_DIR$/CompanyModule.js" />
@@ -136,10 +136,11 @@
         <option value="$PROJECT_DIR$/UI.js" />
         <option value="$PROJECT_DIR$/css/mystyle.css" />
         <option value="$PROJECT_DIR$/Mediator.js" />
+        <option value="$PROJECT_DIR$/AjaxModule.js" />
         <option value="$PROJECT_DIR$/Main.js" />
+        <option value="$PROJECT_DIR$/DepartmentWidget.js" />
         <option value="$PROJECT_DIR$/Main.html" />
         <option value="$PROJECT_DIR$/EmpliyeeWidget.js" />
-        <option value="$PROJECT_DIR$/DepartmentWidget.js" />
       </list>
     </option>
   </component>
@@ -201,14 +202,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="appearance" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -294,7 +295,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -418,6 +419,13 @@
         <state line="660" column="76" selection-start="73122" selection-end="73122" vertical-scroll-proportion="3.4060326" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AjaxModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="2" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/mystyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="102" column="48" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
@@ -425,51 +433,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mediator.js">
+    <entry file="file://$PROJECT_DIR$/Main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="44" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EmpliyeeWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="60" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
+        <state line="215" column="78" selection-start="8374" selection-end="8374" vertical-scroll-proportion="-26.115385">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CompanyModule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AjaxModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="28" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="90" selection-start="2878" selection-end="2878" vertical-scroll-proportion="-12.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="80" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
+        <state line="7" column="45" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DepartmentWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="40" selection-start="5825" selection-end="5825" vertical-scroll-proportion="0.63085717">
+        <state line="168" column="59" selection-start="6227" selection-end="6227" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="82" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mediator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="47" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EmpliyeeWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="63" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.8937143">
           <folding />
         </state>
       </provider>

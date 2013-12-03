@@ -19,17 +19,23 @@
 
         public ViewModel dw = new ViewModel();
 
-        // GET api/department/5
-        public DepartmentVieweModel GetDep(int id)
+
+        [System.Web.Mvc.HttpGet]
+        [ActionName("GetDepartments")]
+        public IEnumerable<DepartmentVieweModel> GetDepartments()
+        {
+            return this.dw.GetDepartmentsViewModels(this._service.FindAllDepartments());
+        }
+
+        [System.Web.Mvc.HttpGet]
+        [ActionName("GetDepartments")]
+        public DepartmentVieweModel GetDepartments(int id)
         {
             return this.dw.GetDepartmentVieweModel(this._service.FindDepartmentsById(id));
         }
 
-        //public IEnumerable<DepartmentVieweModel> GetDepartments()
-        //{
-        //    return this.dw.GetDepartmentsViewModels(this._service.FindAllDepartments());
-        //}
-
+        [System.Web.Mvc.HttpGet]
+        [ActionName("GetDepartmentsByCompany")]
         public IEnumerable<DepartmentVieweModel> GetDepartmentsByCompany(int id)
         {
             return this.dw.GetDepartmentsViewModels(this._service.FindAllCompanysDepartments(id));
@@ -57,13 +63,13 @@
         }
 
         [System.Web.Mvc.HttpOptions]
+        //[ActionName("Options")]
         public void Options()
         {
             //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
-            HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
-            HttpContext.Current.Response.AppendHeader("Allow", "POST, GET, OPTIONS, DELETE, PUT");
-            HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Headers", "X-Requested-With");
-           
+            //HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+            //HttpContext.Current.Response.AppendHeader("Allow", "POST, GET, OPTIONS, DELETE, PUT");
+            //HttpContext.Current.Response.AppendHeader("Access-Control-Allow-Headers", "X-Requested-With");
         }
     }
 }

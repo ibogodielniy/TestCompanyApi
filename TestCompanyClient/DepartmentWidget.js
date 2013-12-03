@@ -2,19 +2,14 @@
 Page.Tabs.DepartmentTab.AddTab.OpenBtn = $('.add-department-modal-btn');
 Page.Tabs.DepartmentTab.AddTab.SubmitBtn = $('#add-submit-department-btn');
 Page.Tabs.DepartmentTab.AddTab.CloseBtn = $('#add-close-department-modal-btn');
-Page.Tabs.DepartmentTab.AddTab.DepartmentNameInp = $('#add-department-name-inp');
-Page.Tabs.DepartmentTab.AddTab.DepartmentDescriptionInp = $('#add-department-description-inp');
 
 Page.Tabs.DepartmentTab.EditTab.DepartmentId = {};
 
 Page.Tabs.DepartmentTab.EditTab.OpenBtn = $('#edit-department-modal-btn');
 Page.Tabs.DepartmentTab.EditTab.SubmitBtn = $('#edit-submit-department-btn');
 Page.Tabs.DepartmentTab.EditTab.CloseBtn = $('#edit-close-department-modal-btn');
-Page.Tabs.DepartmentTab.EditTab.DepartmentNameInp = $('#edit-department-name-inp');
-Page.Tabs.DepartmentTab.EditTab.DepartmentDescriptionInp = $('#edit-department-description-inp');
 
 Page.Tabs.DepartmentTab.DeleteBtn = $('.delete-department-btn');
-
 
 Page.Modals.addDepartment = $('#add-department-modal');
 Page.Modals.editDepartment = $('#edit-department-modal');
@@ -31,6 +26,7 @@ $(document).ready(function () {
     Page.Tabs.DepartmentTab.AddTab.SubmitBtn.on('click', function () {
         DepartmentModule.submitAddDepartment();
     });
+
 
     Page.Tabs.DepartmentTab.AddTab.CloseBtn.on('click', function () {
         DepartmentModule.closeDepartmentAddModal();
@@ -65,126 +61,113 @@ $(document).ready(function () {
 
 var DepartmentModule = {
 
-        companyId: 0,
+    companyId: 0,
 
-        addDepartment: function () {
-            $(Page.Modals.addDepartment).modal('show');
-        },
+    closeDepartmentAddModal: function () {
+        $(Page.Modals.addDepartment).modal('hide');
+    },
 
-        submitAddDepartment: function () {
-            var department = {};
-            department.Name = Page.Tabs.DepartmentTab.AddTab.DepartmentNameInp.val();
-            department.Description = Page.Tabs.DepartmentTab.AddTab.DepartmentDescriptionInp.val();
-            AjaxModule.PostJSON(Page.Urls.DepartmentsUrl, department);
-            DepartmentModule.closeDepartmentAddModal();
-        },
+    closeDepartmentEditModal: function () {
+        $('#department-modal').modal('hide');
+    },
 
-        submitEditDepartment: function (Id) {
-            var department = {};
-            department.Name = $('#edit-department-name-inp').val();
-            department.Description = $('#edit-department-description-inp').val();
-            department.IdDepartment = Id;
-            department.CompanyId = this.companyId;
-            AjaxModule.PutJSON(Page.Urls.DepartmentsUrl, department, Id);
-            DepartmentModule.closeDepartmentEditModal();
-        },
+    deleteDepartment: function (Id) {
+        AjaxModule.DeleteJSON(Page.Urls.DepartmentsUrl, Id);
+    },
 
-        closeDepartmentAddModal: function () {
-            $(Page.Modals.addDepartment).modal('hide');
-        },
+    addDepartment: function () {
+        $(Page.Modals.addDepartment).modal('show');
+    },
 
-        closeDepartmentEditModal: function () {
-            $('#department-modal').modal('hide');
-        },
+    submitAddDepartment: function () {
+        var str = $("#adddepform").serialize() + '&' + $.param({ 'CompanyId': this.companyId });
+        AjaxModule.PostJSON(Page.Urls.DepartmentsUrl, str);
+        DepartmentModule.closeDepartmentAddModal();
+    },
 
-        deleteDepartment: function (Id) {
-            AjaxModule.DeleteJSON(Page.Urls.DepartmentsUrl, Id);
-        },
+    submitEditDepartment: function (Id) {
+        var str = $("#editdepform").serialize() + '&' + $.param({ 'CompanyId': this.companyId }) + '&' + $.param({ 'IdDepartment': Id });
+        AjaxModule.PutJSON(Page.Urls.DepartmentsUrl, str, Id);
+        DepartmentModule.closeDepartmentEditModal();
+    },
 
-        createLiElement: function (department) {
+    createLiElement: function (department) {
 
-            var delbtn = $('<button/>', {
-                text: 'Delete',
-                class: 'delete-department-btn hideble btn btn-default'}).attr('data-dId', department.IdDepartment);
+        var delbtn = $('<button/>', {
+            text: 'Delete',
+            class: 'delete-department-btn hideble btn btn-default'}).attr('data-dId', department.IdDepartment);
 
-            var editbtn = $('<button/>', {
-                text: 'Edit',
-                class: 'edit-department-modal-btn hideble btn btn-default'}).attr('data-dId', department.IdDepartment);
+        var editbtn = $('<button/>', {
+            text: 'Edit',
+            class: 'edit-department-modal-btn hideble btn btn-default'}).attr('data-dId', department.IdDepartment);
 
-            var selectbtn = $('<button/>', {
-                text: 'Select',
-                class: 'select-dep-btn hideble btn btn-default'}).attr('data-dId', department.IdDepartment);
+        var selectbtn = $('<button/>', {
+            text: 'Select',
+            class: 'select-dep-btn hideble btn btn-default'}).attr('data-dId', department.IdDepartment);
 
-            var btndiv = $('<div><div/>').append(delbtn, editbtn, selectbtn).addClass('treeNode btn-group');
+        var btndiv = $('<div><div/>').append(delbtn, editbtn, selectbtn).addClass('treeNode btn-group');
 
-            var namediv = $('<div><div/>').text(department.Name).addClass('treeNode');
+        var namediv = $('<div><div/>').text(department.Name).addClass('treeNode');
 
-            var li = $('<li></li>').append(namediv).append(btndiv).addClass('sortable').attr('data-dId', department.IdDepartment);
+        var li = $('<li></li>').append(namediv).append(btndiv).addClass('sortable').attr('data-dId', department.IdDepartment);
 
-            return  li;
-        },
+        return  li;
+    },
 
-        appendDepartmentToTree: function (departments, ul) {
-            var ancestorDeps = [];
+    appendDepartmentToTree: function (departments, ul) {
+        var ancestorDeps = [];
 
-            for (var i = 0, n = departments.length; i < n; i++) {
-                var department = departments[i];
+        for (var i = 0, n = departments.length; i < n; i++) {
+            var department = departments[i];
 
-                if (department.AncestorDepartment_IdDepartment == null) {
-                    ul.append(DepartmentModule.createLiElement(department));
-                }
-                else {
-                    ancestorDeps.push(department);
-                }
+            if (department.AncestorDepartment_IdDepartment == null) {
+                ul.append(DepartmentModule.createLiElement(department));
             }
-
-            for (var t = 0; t < ancestorDeps.length; t++) {
-                var Id = ancestorDeps[t].AncestorDepartment_IdDepartment;
-                var intermediateUl = $('<ul></ul>');
-                intermediateUl.append(DepartmentModule.createLiElement(ancestorDeps[t]));
-                (ul).find('li.sortable[data-did= ' + Id + ']').append(intermediateUl);//.find(".sortable[data-dId$='Id']")
-                ancestorDeps.splice(t, 1);
+            else {
+                ancestorDeps.push(department);
             }
+        }
 
-            if (ancestorDeps.length) {
-                DepartmentModule.appendDepartmentToTree(ancestorDeps, ul);
-            }
+        for (var t = 0; t < ancestorDeps.length; t++) {
+            var Id = ancestorDeps[t].AncestorDepartment_IdDepartment;
+            var intermediateUl = $('<ul></ul>');
+            intermediateUl.append(DepartmentModule.createLiElement(ancestorDeps[t]));
+            (ul).find('li.sortable[data-did= ' + Id + ']').append(intermediateUl);//.find(".sortable[data-dId$='Id']")
+            ancestorDeps.splice(t, 1);
+        }
 
-            return ul;
-        },
+        if (ancestorDeps.length) {
+            DepartmentModule.appendDepartmentToTree(ancestorDeps, ul);
+        }
 
-        departmentMovedFrom: function (item) {
-            var parent = item.parent().parent().attr('data-dId');
-            var first = item.parents('li').last().attr('data-dId');
-        },
+        return ul;
+    },
 
-        departmentMovedTo: function (item) {
-            var parent = item.parent().parent().attr('data-dId');
-            //var first = item.parents('li').last().attr('data-dId');
-            var Id = item.attr('data-dId');
-            var dep = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl + 'GetDep/' + Id).responseText);
-            var department = {};
-            department.AncestorDepartment_IdDepartment = parent;
-            department.Name = dep.Name;
-            department.Description = dep.Description;
-            department.IdDepartment = Id;
-            department.CompanyId = dep.CompanyId;
-            AjaxModule.PutJSON(Page.Urls.DepartmentsUrl, department, Id);
-        },
+    departmentMovedTo: function (item) {
+        var parent = item.parent().parent().attr('data-dId');
+        var Id = item.attr('data-dId');
+        var dep = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl + Id).responseText);
+        var department = {};
+        department.AncestorDepartment_IdDepartment = parent;
+        department.Name = dep.Name;
+        department.Description = dep.Description;
+        department.IdDepartment = Id;
+        department.CompanyId = dep.CompanyId;
+        AjaxModule.PutJSON(Page.Urls.DepartmentsUrl, department, Id);
+    },
 
-        openDepartmentModal: function (Id) {
-            var departments = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl).responseText);
-            for (var i = 0, n = departments.length; i < n; i++) {
-                var department = departments[i];
-                if (department.IdDepartment == Id) {
-                    var item = {name: department.Name, description: department.Description};
-                    $("#target").html(_.template($('#template').html(), {item: item}));
-                    $('#department-modal').modal('show').attr('data-dId', Id);
-                }
+    openDepartmentModal: function (Id) {
+        var departments = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl).responseText);
+        for (var i = 0, n = departments.length; i < n; i++) {
+            var department = departments[i];
+            if (department.IdDepartment == Id) {
+                var item = {name: department.Name, description: department.Description};
+                $("#target").html(_.template($('#template').html(), {item: item}));
+                $('#department-modal').modal('show').attr('data-dId', Id);
             }
         }
     }
-    ;
+};
 
 mediator.subscribe('CompanySelected', function (CompanyId) {
     DepartmentModule.companyId = CompanyId;
@@ -196,9 +179,6 @@ mediator.subscribe('CompanySelected', function (CompanyId) {
         $("#companyConteiner ul").sortable({
             connectWith: "#companyConteiner ul",
             placeholder: "ui-state-highlight",
-            start: function (event, ui) {
-                DepartmentModule.departmentMovedFrom(ui.item);
-            },
             stop: function (event, ui) {
                 DepartmentModule.departmentMovedTo(ui.item);
             }

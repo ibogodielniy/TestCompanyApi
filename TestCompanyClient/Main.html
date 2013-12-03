@@ -130,20 +130,19 @@
         <h3>Add Employee</h3>
     </div>
     <div class="modal-body">
-        <form>
+        <form id="add-emp-form">
             <label for="add-employee-name-inp">Name</label>
-            <input type="text" id="add-employee-name-inp"><br>
+            <input name="Name" type="text" id="add-employee-name-inp"><br>
             <label for="add-employee-phone-inp">Phone</label>
-            <input type="tel" id="add-employee-phone-inp"><br>
+            <input name="Phone" type="tel" id="add-employee-phone-inp"><br>
             <label for="add-employee-email-inp">E-mail</label>
-            <input type="email" id="add-employee-email-inp"><br>
+            <input name="Email" type="email" id="add-employee-email-inp"><br>
             <label for="add-employee-company-inp">Select Company</label>
             <select id="add-employee-company-inp"></select>
             <label for="add-employee-dep-inp">Select Department</label>
             <select id="add-employee-dep-inp"></select>
             <label for="add-employee-altdep-inp">Select Alternative Department</label>
             <select id="add-employee-altdep-inp"></select>
-
         </form>
     </div>
     <div class="modal-footer">
@@ -161,11 +160,11 @@
         <h3>Add Department</h3>
     </div>
     <div class="modal-body">
-        <form>
+        <form id="adddepform">
             <label for="add-department-name-inp">Name</label>
-            <input type="text" id="add-department-name-inp"><br>
+            <input name="Name" type="text" id="add-department-name-inp"><br>
             <label for="add-department-description-inp">Description</label>
-            <input type="tel" id="add-department-description-inp"><br>
+            <input name="Description" type="tel" id="add-department-description-inp"><br>
         </form>
     </div>
     <div class="modal-footer">
@@ -183,11 +182,11 @@
             <h3>Edit Department</h3>
         </div>
         <div class="modal-body">
-            <form>
+            <form id="editdepform">
                 <label for="edit-department-name-inp"></label>
-                <input type="text" id="edit-department-name-inp" value="<%= item.name%>"><br>
+                <input name="Name" type="text" id="edit-department-name-inp" value="<%= item.name%>"><br>
                 <label for="edit-department-description-inp"></label>
-                <input type="tel" id="edit-department-description-inp" value="<%= item.description%>"><br>
+                <input name="Description" type="tel" id="edit-department-description-inp" value="<%= item.description%>"><br>
             </form>
         </div>
         <div class="modal-footer">
@@ -203,14 +202,14 @@
             <h3>Edit Employee</h3>
         </div>
         <div class="modal-body">
-            <form>
+            <form id="edit-emp-form">
                 <label id="editEmpId">Employee Id_ </label>
                 <label for="edit-employee-name-inp">Name</label>
-                <input type="text" value="<%=employee.name%>" id="edit-employee-name-inp"><br>
+                <input type="text" name="Name" value="<%=employee.name%>" id="edit-employee-name-inp"><br>
                 <label for="edit-employee-phone-inp">Phone</label>
-                <input type="tel" value="<%=employee.phone%>" id="edit-employee-phone-inp"><br>
+                <input type="tel" name="Phone" value="<%=employee.phone%>" id="edit-employee-phone-inp"><br>
                 <label for="edit-employee-email-inp">E-mail</label>
-                <input type="email" value="<%=employee.email%>" id="edit-employee-email-inp"><br>
+                <input type="email" name="Email" value="<%=employee.email%>" id="edit-employee-email-inp"><br>
                 <label for="edit-employee-dep-inp">Select Department</label>
                 <select id="edit-employee-dep-inp"></select>
                 <label for="edit-employee-altdep-inp">Select Alternative Department</label>
