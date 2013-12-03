@@ -1,50 +1,45 @@
-//Employee Tab controls:
-Page.Tabs.EmployeeTab.AddTab.OpenBtn = $('.add-employee-modal-btn');
-Page.Tabs.EmployeeTab.AddTab.SubmitBtn = $('#add-submit-emplyee-btn');
-Page.Tabs.EmployeeTab.AddTab.CloseBtn = $('#add-close-emplyee-modal-btn');
-
-Page.Tabs.EmployeeTab.EditTab.EmployeeId = {};
-
-Page.Tabs.EmployeeTab.EditTab.OpenBtn = $('.edit-employee-modal-btn');
-Page.Tabs.EmployeeTab.EditTab.SubmitBtn = $('#edit-submit-emplyee-btn');
-Page.Tabs.EmployeeTab.EditTab.CloseBtn = $('#edit-close-emplyee-modal-btn');
-
-Page.Tabs.EmployeeTab.DeleteBtn = $('.delete-employee-btn');
-
-//Modals:
-Page.Modals.addEmployee = $('#add-employee-modal');
-Page.Modals.editEmployee = $('#edit-employee-modal');
-
 var hash = 2;
 $template = $(".template");
 
-$(document).ready(function () {
-    Page.Tabs.EmployeeTab.AddTab.OpenBtn.on('click', function () {
-        EmployeeModule.addEmployee();
-    });
-
-    Page.Tabs.EmployeeTab.AddTab.SubmitBtn.on('click', function () {
-        EmployeeModule.submitEmployee();
-    });
-
-    Page.Tabs.EmployeeTab.AddTab.CloseBtn.on('click', function () {
-        EmployeeModule.closeAddEmployeeModal();
-    });
-
-    Page.Tabs.EmployeeTab.EditTab.CloseBtn.on('click', function () {
-        EmployeeModule.closeEmployeeEditModal();
-    });
-
-    $(document).delegate('.delete-employee-btn', 'click', function () {
-        EmployeeModule.deleteEmployee($(this).attr("eid"));
-    });
-
-    $(document).delegate('.edit-employee-modal-btn','click', function () {
-        EmployeeModule.openEmployeeModal($(this).attr("eId"));
-    });
-});
-
 var EmployeeModule = {
+
+    init: function () {
+        //Add Employee:
+        $('.add-employee-modal-btn').on('click', function () {
+            EmployeeModule.addEmployee();
+        });
+
+        //Submit Employee:
+        $('#add-submit-emplyee-btn').on('click', function () {
+            EmployeeModule.submitEmployee();
+        });
+
+        //Close Adding Modal:
+        $('#add-close-emplyee-modal-btn').on('click', function () {
+            EmployeeModule.closeAddEmployeeModal();
+        });
+
+        //Close Editing Modal:
+        $('#edit-close-emplyee-modal-btn').on('click', function () {
+            EmployeeModule.closeEmployeeEditModal();
+        });
+
+        //Delete Employee:
+        $(document).delegate('.delete-employee-btn', 'click', function () {
+            EmployeeModule.deleteEmployee($(this).attr("eid"));
+        });
+
+        //Edit Employee:
+        $(document).delegate('.edit-employee-modal-btn', 'click', function () {
+            EmployeeModule.openEmployeeModal($(this).attr("eId"));
+        });
+
+        //Subscribe To Department Selection Event:
+        mediator.subscribe('departmentSelected', function (Id) {
+            EmployeeModule.clearEmployeeList();
+            EmployeeModule.getEmployeeFromJSON(Id);
+        });
+    },
 
     closeEmployeeEditModal: function () {
         $('#edit-employee-modal').modal('hide');
@@ -55,34 +50,35 @@ var EmployeeModule = {
     },
 
     deleteEmployee: function (Id) {
-        AjaxModule.DeleteJSON(Page.Urls.EmployeeUrl, Id);
+        AjaxModule.DeleteJSON(API.Urls.EmployeeUrl, Id);
     },
 
     closeAddEmployeeModal: function () {
         $('#add-employee-modal').modal('hide');
     },
 
+    //Logic of dropdown population is commented currently
     addEmployee: function () {
         $('#add-employee-modal').modal('show');
-       /* var company = JSON.parse(AjaxModule.GetJSON(Page.Urls.CompaniesUrl).responseText);
-        $.each(company, function () {
-            var option = document.createElement("option");
-            option.innerHTML = this.Name;
-            option.value = this.Id;
-            $('#add-employee-company-inp').append(option);
-        });*/
+        /* var company = JSON.parse(AjaxModule.GetJSON(API.Urls.CompaniesUrl).responseText);
+         $.each(company, function () {
+         var option = document.createElement("option");
+         option.innerHTML = this.Name;
+         option.value = this.Id;
+         $('#add-employee-company-inp').append(option);
+         });*/
     },
 
     submitEmployee: function () {
         this.clearEmployeeList();
         var str = $("#add-emp-form").serialize();
-        AjaxModule.PostJSON(Page.Urls.EmployeeUrl, str);
+        AjaxModule.PostJSON(API.Urls.EmployeeUrl, str);
         this.closeAddEmployeeModal();
         this.getEmployeeFromJSON();
     },
 
     getEmployeeFromJSON: function (DepId) {
-        var employee = JSON.parse(AjaxModule.GetJSON(Page.Urls.EmployeeByDepartment + DepId).responseText);
+        var employee = JSON.parse(AjaxModule.GetJSON(API.Urls.EmployeeByDepartment + DepId).responseText);
         for (var i = 0, len = employee.length; i < len; i++) {
             this.addPanel(employee[i].Id, employee[i].Name, employee[i].Email, employee[i].Phone);
         }
@@ -101,7 +97,7 @@ var EmployeeModule = {
     },
 
     openEmployeeModal: function (Id) {
-        var employees = JSON.parse(AjaxModule.GetJSON(Page.Urls.EmployeeUrl).responseText);
+        var employees = JSON.parse(AjaxModule.GetJSON(API.Urls.EmployeeUrl).responseText);
         for (var i = 0, n = employees.length; i < n; i++) {
             var employee = employees[i];
             if (employee.Id == Id) {
@@ -113,15 +109,12 @@ var EmployeeModule = {
 
         $('#edit-submit-emplyee-btn').on("click", function () {
             var str = $("#edit-emp-form").serialize();
-            AjaxModule.PutJSON(Page.Urls.EmployeeUrl, str, Id);
+            AjaxModule.PutJSON(API.Urls.EmployeeUrl, str, Id);
             EmployeeModule.closeEmployeeEditModal();
         });
     }
 };
 
-mediator.subscribe('departmentSelected', function (Id) {
-    EmployeeModule.clearEmployeeList();
-    EmployeeModule.getEmployeeFromJSON(Id);
-});
+
 
 

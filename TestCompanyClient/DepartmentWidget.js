@@ -1,70 +1,63 @@
-//Department Tab controls:
-Page.Tabs.DepartmentTab.AddTab.OpenBtn = $('.add-department-modal-btn');
-Page.Tabs.DepartmentTab.AddTab.SubmitBtn = $('#add-submit-department-btn');
-Page.Tabs.DepartmentTab.AddTab.CloseBtn = $('#add-close-department-modal-btn');
-
-Page.Tabs.DepartmentTab.EditTab.DepartmentId = {};
-
-Page.Tabs.DepartmentTab.EditTab.OpenBtn = $('#edit-department-modal-btn');
-Page.Tabs.DepartmentTab.EditTab.SubmitBtn = $('#edit-submit-department-btn');
-Page.Tabs.DepartmentTab.EditTab.CloseBtn = $('#edit-close-department-modal-btn');
-
-Page.Tabs.DepartmentTab.DeleteBtn = $('.delete-department-btn');
-
-Page.Modals.addDepartment = $('#add-department-modal');
-Page.Modals.editDepartment = $('#edit-department-modal');
-
-$(document).ready(function () {
-    //Department UI methods:
-
-    //Add Department:
-    Page.Tabs.DepartmentTab.AddTab.OpenBtn.on('click', function () {
-        DepartmentModule.addDepartment();
-    });
-
-    //Submit Department:
-    Page.Tabs.DepartmentTab.AddTab.SubmitBtn.on('click', function () {
-        DepartmentModule.submitAddDepartment();
-    });
-
-
-    Page.Tabs.DepartmentTab.AddTab.CloseBtn.on('click', function () {
-        DepartmentModule.closeDepartmentAddModal();
-    });
-
-    //Edit Department
-    $(document).delegate('.edit-department-modal-btn', 'click', function () {
-        DepartmentModule.openDepartmentModal($(this).attr("data-dId"));
-    });
-
-    //Delete Department
-    $(document).delegate('.delete-department-btn', 'click', function () {
-        DepartmentModule.deleteDepartment($(this).attr("data-dId"));
-    });
-
-    //Select Department
-    $(document).delegate('.select-dep-btn', 'click', function () {
-        var Id = $(this).attr('data-dId');
-        mediator.publish('departmentSelected', Id);
-    });
-
-    //Move Department
-    $(document).delegate('ul', 'sortchange', function () {
-        var Id = $(this).find('button').attr('data-dId');
-        mediator.publish('departmentMovedFrom', Id);
-    });
-
-    $(document).delegate('#submit', 'click', function () {
-        DepartmentModule.submitEditDepartment($('#department-modal').attr('data-dId'));
-    });
-});
-
 var DepartmentModule = {
 
     companyId: 0,
 
+    init: function () {
+        //Department UI methods:
+
+        //Add Department:
+        $('.add-department-modal-btn').on('click', function () {
+            DepartmentModule.addDepartment();
+        });
+
+        //Submit Newly Added Department:
+        $('#add-submit-department-btn').on('click', function () {
+            DepartmentModule.submitAddDepartment();
+        });
+
+        //Close Adding Modal:
+        $('#add-close-department-modal-btn').on('click', function () {
+            DepartmentModule.closeDepartmentAddModal();
+        });
+
+        //Edit Department:
+        $(document).delegate('.edit-department-modal-btn', 'click', function () {
+            DepartmentModule.openDepartmentModal($(this).attr("data-dId"));
+        });
+
+        //Delete Department:
+        $(document).delegate('.delete-department-btn', 'click', function () {
+            DepartmentModule.deleteDepartment($(this).attr("data-dId"));
+        });
+
+        //Select Department:
+        $(document).delegate('.select-dep-btn', 'click', function () {
+            var Id = $(this).attr('data-dId');
+            mediator.publish('departmentSelected', Id);
+        });
+
+        //Move Department:
+        $(document).delegate('ul', 'sortchange', function () {
+            var Id = $(this).find('button').attr('data-dId');
+            mediator.publish('departmentMovedFrom', Id);
+        });
+
+        //Submit Edited Department:
+        $(document).delegate('#submit', 'click', function () {
+            DepartmentModule.submitEditDepartment($('#department-modal').attr('data-dId'));
+        });
+
+        //Subscribe To Company Selection Event:
+        mediator.subscribe('CompanySelected', function (CompanyId) {
+            DepartmentModule.companyId = CompanyId;
+            var departments = JSON.parse(AjaxModule.GetJSON(API.Urls.DepartmentByCompany + CompanyId).responseText);
+            $('#companyConteiner').empty();
+            DepartmentModule.renderTree(departments);
+        });
+    },
+
     closeDepartmentAddModal: function () {
-        $(Page.Modals.addDepartment).modal('hide');
+        $('#add-department-modal').modal('hide');
     },
 
     closeDepartmentEditModal: function () {
@@ -72,22 +65,22 @@ var DepartmentModule = {
     },
 
     deleteDepartment: function (Id) {
-        AjaxModule.DeleteJSON(Page.Urls.DepartmentsUrl, Id);
+        AjaxModule.DeleteJSON(API.Urls.DepartmentsUrl, Id);
     },
 
     addDepartment: function () {
-        $(Page.Modals.addDepartment).modal('show');
+        $('#add-department-modal').modal('show');
     },
 
     submitAddDepartment: function () {
         var str = $("#adddepform").serialize() + '&' + $.param({ 'CompanyId': this.companyId });
-        AjaxModule.PostJSON(Page.Urls.DepartmentsUrl, str);
+        AjaxModule.PostJSON(API.Urls.DepartmentsUrl, str);
         DepartmentModule.closeDepartmentAddModal();
     },
 
     submitEditDepartment: function (Id) {
         var str = $("#editdepform").serialize() + '&' + $.param({ 'CompanyId': this.companyId }) + '&' + $.param({ 'IdDepartment': Id });
-        AjaxModule.PutJSON(Page.Urls.DepartmentsUrl, str, Id);
+        AjaxModule.PutJSON(API.Urls.DepartmentsUrl, str, Id);
         DepartmentModule.closeDepartmentEditModal();
     },
 
@@ -109,9 +102,8 @@ var DepartmentModule = {
 
         var namediv = $('<div><div/>').text(department.Name).addClass('treeNode');
 
-        var li = $('<li></li>').append(namediv).append(btndiv).addClass('sortable').attr('data-dId', department.IdDepartment);
+        return $('<li></li>').append(namediv).append(btndiv).addClass('sortable').attr('data-dId', department.IdDepartment);
 
-        return  li;
     },
 
     appendDepartmentToTree: function (departments, ul) {
@@ -132,7 +124,7 @@ var DepartmentModule = {
             var Id = ancestorDeps[t].AncestorDepartment_IdDepartment;
             var intermediateUl = $('<ul></ul>');
             intermediateUl.append(DepartmentModule.createLiElement(ancestorDeps[t]));
-            (ul).find('li.sortable[data-did= ' + Id + ']').append(intermediateUl);//.find(".sortable[data-dId$='Id']")
+            (ul).find('li.sortable[data-did= ' + Id + ']').append(intermediateUl);
             ancestorDeps.splice(t, 1);
         }
 
@@ -143,37 +135,7 @@ var DepartmentModule = {
         return ul;
     },
 
-    departmentMovedTo: function (item) {
-        var parent = item.parent().parent().attr('data-dId');
-        var Id = item.attr('data-dId');
-        var dep = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl + Id).responseText);
-        var department = {};
-        department.AncestorDepartment_IdDepartment = parent;
-        department.Name = dep.Name;
-        department.Description = dep.Description;
-        department.IdDepartment = Id;
-        department.CompanyId = dep.CompanyId;
-        AjaxModule.PutJSON(Page.Urls.DepartmentsUrl, department, Id);
-    },
-
-    openDepartmentModal: function (Id) {
-        var departments = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentsUrl).responseText);
-        for (var i = 0, n = departments.length; i < n; i++) {
-            var department = departments[i];
-            if (department.IdDepartment == Id) {
-                var item = {name: department.Name, description: department.Description};
-                $("#target").html(_.template($('#template').html(), {item: item}));
-                $('#department-modal').modal('show').attr('data-dId', Id);
-            }
-        }
-    }
-};
-
-mediator.subscribe('CompanySelected', function (CompanyId) {
-    DepartmentModule.companyId = CompanyId;
-    var departments = JSON.parse(AjaxModule.GetJSON(Page.Urls.DepartmentByCompany + CompanyId).responseText);
-    $('#companyConteiner').empty();
-    function renderTree() {
+    renderTree: function(departments) {
         $("#companyConteiner").append(DepartmentModule.appendDepartmentToTree(departments, $('<ul></ul>')));
         $('.hideble').hide();
         $("#companyConteiner ul").sortable({
@@ -184,15 +146,39 @@ mediator.subscribe('CompanySelected', function (CompanyId) {
             }
         });
 
+        //Depatment Button Group Setting:
         $('.treeNode').on('mouseover',function () {
             $(this).find('.hideble').show();
         }).on('mouseout', function () {
                 $('.hideble').hide();
             });
-    }
+    },
 
-    renderTree();
-});
+    departmentMovedTo: function (item) {
+        var parent = item.parent().parent().attr('data-dId');
+        var Id = item.attr('data-dId');
+        var dep = JSON.parse(AjaxModule.GetJSON(API.Urls.DepartmentsUrl + Id).responseText);
+        var department = {};
+        department.AncestorDepartment_IdDepartment = parent;
+        department.Name = dep.Name;
+        department.Description = dep.Description;
+        department.IdDepartment = Id;
+        department.CompanyId = dep.CompanyId;
+        AjaxModule.PutJSON(API.Urls.DepartmentsUrl, department, Id);
+    },
+
+    openDepartmentModal: function (Id) {
+        var departments = JSON.parse(AjaxModule.GetJSON(API.Urls.DepartmentsUrl).responseText);
+        for (var i = 0, n = departments.length; i < n; i++) {
+            var department = departments[i];
+            if (department.IdDepartment == Id) {
+                var item = {name: department.Name, description: department.Description};
+                $("#target").html(_.template($('#template').html(), {item: item}));
+                $('#department-modal').modal('show').attr('data-dId', Id);
+            }
+        }
+    }
+};
 
 $("#sortable").sortable().disableSelection();
 

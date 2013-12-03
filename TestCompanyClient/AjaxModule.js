@@ -14,7 +14,7 @@ var AjaxModule = {
             type: 'PUT',
             data: data,
             success: function () {
-                alert('Employee has been modified');
+                alert('Entity has been modified');
             }
         });
     },
@@ -25,7 +25,7 @@ var AjaxModule = {
             type: 'POST',
             data: data,
             success: function () {
-                alert('New employee has been added');
+                alert('New entity has been added');
             }
         });
     },
@@ -36,7 +36,7 @@ var AjaxModule = {
             type: 'DELETE',
             crossDomain: true,
             success: function () {
-                alert('Employee has been deleted');
+                alert('Entity has been deleted');
             }
         });
     }
