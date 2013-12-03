@@ -42,18 +42,21 @@
         }
 
         [System.Web.Mvc.HttpDelete]
+        [ActionName("GetDepartments")]
         public void Delete(int id)
         {
             this._service.RemoveDepartment(id);
         }
 
         [System.Web.Mvc.HttpPost]
+        [ActionName("GetDepartments")]
         public void Post([FromBody]DepartmentVieweModel department)
         {
             this._service.AddDepartment(this.dw.GetDepartmentFromViewModel(department));
         }
 
         [System.Web.Mvc.HttpPut]
+        [ActionName("GetDepartments")]
         public void Put(int id, [FromBody] DepartmentVieweModel department)
         {
             if (this._service.FindDepartmentsById(id) != null)
@@ -64,6 +67,7 @@
 
         [System.Web.Mvc.HttpOptions]
         //[ActionName("Options")]
+        [ActionName("GetDepartments")]
         public void Options()
         {
             //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");
