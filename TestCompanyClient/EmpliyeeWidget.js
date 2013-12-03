@@ -39,6 +39,16 @@ var EmployeeModule = {
             EmployeeModule.clearEmployeeList();
             EmployeeModule.getEmployeeFromJSON(Id);
         });
+
+        $('#add-employee-company-inp').change(function(){
+            var departments = JSON.parse(AjaxModule.GetJSON(API.Urls.DepartmentByCompany + this.value).responseText);
+            $.each(departments, function () {
+                var option = document.createElement("option");
+                option.innerHTML = this.Name;
+                option.value = this.IdDepartment;
+                $('#add-employee-dep-inp, #add-employee-altdep-inp').append(option);
+            });
+        });
     },
 
     closeEmployeeEditModal: function () {
@@ -57,16 +67,15 @@ var EmployeeModule = {
         $('#add-employee-modal').modal('hide');
     },
 
-    //Logic of dropdown population is commented currently
     addEmployee: function () {
         $('#add-employee-modal').modal('show');
-        /* var company = JSON.parse(AjaxModule.GetJSON(API.Urls.CompaniesUrl).responseText);
+        var company = JSON.parse(AjaxModule.GetJSON(API.Urls.CompaniesUrl).responseText);
          $.each(company, function () {
          var option = document.createElement("option");
          option.innerHTML = this.Name;
          option.value = this.Id;
          $('#add-employee-company-inp').append(option);
-         });*/
+         });
     },
 
     submitEmployee: function () {
