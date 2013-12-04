@@ -1,9 +1,10 @@
 var hash = 2;
-$template = $(".template");
+
+var $template = $(".template");
 
 var EmployeeModule = {
-
     init: function () {
+
         //Add Employee:
         $('.add-employee-modal-btn').on('click', function () {
             EmployeeModule.addEmployee();
@@ -40,13 +41,13 @@ var EmployeeModule = {
             EmployeeModule.getEmployeeFromJSON(Id);
         });
 
-        $('#add-employee-company-inp').change(function(){
+        $('#add-employee-company-inp, #edit-employee-company-inp').change(function () {
             var departments = JSON.parse(AjaxModule.GetJSON(API.Urls.DepartmentByCompany + this.value).responseText);
             $.each(departments, function () {
                 var option = document.createElement("option");
                 option.innerHTML = this.Name;
                 option.value = this.IdDepartment;
-                $('#add-employee-dep-inp, #add-employee-altdep-inp').append(option);
+                $('#add-employee-dep-inp, #add-employee-altdep-inp, #edit-employee-dep-inp, #edit-employee-altdep-inp').append(option);
             });
         });
     },
@@ -68,14 +69,18 @@ var EmployeeModule = {
     },
 
     addEmployee: function () {
-        $('#add-employee-modal').modal('show');
+        EmployeeModule.populateModal('#add-employee-modal')
+    },
+
+    populateModal: function (control) {
+        $(control).modal('show');
         var company = JSON.parse(AjaxModule.GetJSON(API.Urls.CompaniesUrl).responseText);
-         $.each(company, function () {
-         var option = document.createElement("option");
-         option.innerHTML = this.Name;
-         option.value = this.Id;
-         $('#add-employee-company-inp').append(option);
-         });
+        $.each(company, function () {
+            var option = document.createElement("option");
+            option.innerHTML = this.Name;
+            option.value = this.Id;
+            $('#add-employee-company-inp, edit-employee-company-inp').append(option);
+        });
     },
 
     submitEmployee: function () {
@@ -92,6 +97,7 @@ var EmployeeModule = {
             this.addPanel(employee[i].Id, employee[i].Name, employee[i].Email, employee[i].Phone);
         }
     },
+
 
     addPanel: function (Id, Name, Email, Phone) {
         var $newPanel = $template.clone();
@@ -112,7 +118,8 @@ var EmployeeModule = {
             if (employee.Id == Id) {
                 var emp = {name: employee.Name, phone: employee.Phone, email: employee.Email};
                 $("#target").html(_.template($('#employee-template').html(), {employee: emp}));
-                $('#edit-employee-modal').modal('show');
+                EmployeeModule.populateModal('#edit-employee-modal')
+                //$('#edit-employee-modal').modal('show');
             }
         }
 

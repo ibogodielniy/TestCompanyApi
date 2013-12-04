@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Web;
     using System.Web.Http;
-    using System.Web.Mvc;
 
     using TestCompanyApi.Mapper;
     using TestCompanyApi.Services;
@@ -19,32 +18,36 @@
             this._service = service;
         }
 
-        //GET api/employee
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("Employee")]
         public IEnumerable<EmployeeViewModel> GetAllEmployees()
         {
             return this.vm.GetEmployeeViewModels(this._service.GetAllEmployees());
         }
 
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("GetEmployeeByDepartments")]
         public IEnumerable<EmployeeViewModel> GetEmployeeByDepartments(int id)
         {
             return this.vm.GetEmployeeViewModels(this._service.GetEmployeesByDept(id));
         }
 
-        // GET api/employee/5
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("Employee")]
         public EmployeeViewModel Get(int id)
         {
             return this.vm.GetEmployeeViewModel(this._service.GetEmployeeById(id));
         }
 
-        // POST api/employee
-        [System.Web.Mvc.HttpPost]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.ActionName("Employee")]
         public void Post([FromBody]EmployeeViewModel employee)
         {
             this._service.PostEmployee(this.vm.GetEmployeeFromViewModel(employee));
         }
 
-        // PUT api/employee/5
-        [System.Web.Mvc.HttpPut]
+        [System.Web.Http.ActionName("Employee")]
+        [System.Web.Http.HttpPut]
         public void Put(int id, [FromBody]EmployeeViewModel employee)
         {
             if (this._service.GetEmployeeById(id) != null)
@@ -53,7 +56,7 @@
             }
         }
 
-        // DELETE api/employee/5        
+        [System.Web.Http.ActionName("Employee")]
         public void Delete(int id)
         {
             if (this._service.GetEmployeeById(id) != null)
@@ -63,6 +66,7 @@
         }
 
         [System.Web.Http.HttpOptions]
+        [System.Web.Http.ActionName("Employee")]
         public void Options()
         {
             //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");

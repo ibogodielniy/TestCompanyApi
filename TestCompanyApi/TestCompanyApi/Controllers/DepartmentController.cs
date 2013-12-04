@@ -20,43 +20,43 @@
         public ViewModel dw = new ViewModel();
 
 
-        [System.Web.Mvc.HttpGet]
-        [ActionName("GetDepartments")]
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("GetDepartments")]
         public IEnumerable<DepartmentVieweModel> GetDepartments()
         {
             return this.dw.GetDepartmentsViewModels(this._service.FindAllDepartments());
         }
 
-        [System.Web.Mvc.HttpGet]
-        [ActionName("GetDepartments")]
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("GetDepartments")]
         public DepartmentVieweModel GetDepartments(int id)
         {
             return this.dw.GetDepartmentVieweModel(this._service.FindDepartmentsById(id));
         }
 
-        [System.Web.Mvc.HttpGet]
-        [ActionName("GetDepartmentsByCompany")]
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.ActionName("GetDepartmentsByCompany")]
         public IEnumerable<DepartmentVieweModel> GetDepartmentsByCompany(int id)
         {
             return this.dw.GetDepartmentsViewModels(this._service.FindAllCompanysDepartments(id));
         }
 
-        [System.Web.Mvc.HttpDelete]
-        [ActionName("GetDepartments")]
+        [System.Web.Http.HttpDelete]
+        [System.Web.Http.ActionName("GetDepartments")]
         public void Delete(int id)
         {
             this._service.RemoveDepartment(id);
         }
 
-        [System.Web.Mvc.HttpPost]
-        [ActionName("GetDepartments")]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.ActionName("GetDepartments")]
         public void Post([FromBody]DepartmentVieweModel department)
         {
             this._service.AddDepartment(this.dw.GetDepartmentFromViewModel(department));
         }
 
-        [System.Web.Mvc.HttpPut]
-        [ActionName("GetDepartments")]
+        [System.Web.Http.HttpPut]
+        [System.Web.Http.ActionName("GetDepartments")]
         public void Put(int id, [FromBody] DepartmentVieweModel department)
         {
             if (this._service.FindDepartmentsById(id) != null)
@@ -65,9 +65,8 @@
             }
         }
 
-        [System.Web.Mvc.HttpOptions]
-        //[ActionName("Options")]
-        [ActionName("GetDepartments")]
+        [System.Web.Http.HttpOptions]
+        [System.Web.Http.ActionName("GetDepartments")]
         public void Options()
         {
             //httpContext.Current.Response.AppendHeader("Access-Control-Allow-Origin", "*");

@@ -180,6 +180,7 @@ var DepartmentModule = {
     }
 };
 
+//?
 $("#sortable").sortable().disableSelection();
 
 

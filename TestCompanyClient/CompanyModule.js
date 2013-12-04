@@ -18,4 +18,4 @@ var ComapanyModule = {
     }
 };
 
-ComapanyModule.getCompaniesFromJSON();
+

@@ -9,5 +9,9 @@
         public string Phone { get; set; }
 
         public string Email { get; set; }
+
+        public int DepartmentId { get; set; }
+
+        public int AlterntiveDepartmentId { get; set; }
     }
 }
